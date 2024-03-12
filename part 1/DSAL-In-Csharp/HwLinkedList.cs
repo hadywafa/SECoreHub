@@ -140,4 +140,36 @@ public class HwLinkedList<T>
         }
         return array;
     }
+    /// <summary>
+    /// Reverses the order of elements in the linked list.
+    /// </summary>
+    public void Reverse()
+    {
+        // Check if the linked list is empty
+        if (IsEmpty()) return;
+
+        // Initialize variables to keep track of nodes during reversal
+        var previous = Head;
+        var current = Head.Next;
+
+        // Traverse through the list and reverse the links
+        while (current != null)
+        {
+            // Save the next node in the original list
+            var next = current.Next;
+
+            // Reverse the link: make the current node point to the previous node
+            current.Next = previous;
+
+            // Move to the next nodes in the original and reversed lists
+            previous = current;
+            current = next;
+        }
+
+        // Adjust Head and Tail after reversal
+        Tail = Head;        // The original Head is now the new Tail
+        Tail.Next = null;   // Set the new Tail's Next to null to indicate the end of the list
+        Head = previous;    // The last node in the original list is now the new Head
+    }
+
 }
