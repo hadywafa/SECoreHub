@@ -19,4 +19,5 @@ list.AddLast(10);
 list.AddLast(20);
 list.AddLast(30);
 list.PrintList();
+System.Console.WriteLine(list.IndexOf(20));
 #endregion

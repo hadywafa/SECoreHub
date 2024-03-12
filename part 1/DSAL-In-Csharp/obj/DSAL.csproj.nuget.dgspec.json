@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\HadyW\\source\\repos\\Data Structure and Algorithms\\documentation\\part 1\\DSAL-In-Csharp\\DSAL.csproj": {}
+    "C:\\Users\\HadyW\\source\\repos\\Data Structure and Algorithms\\documentation\\part 1\\DSAL-In-Csharp\\DSAL.csproj": {}
   },
   "projects": {
-    "c:\\Users\\HadyW\\source\\repos\\Data Structure and Algorithms\\documentation\\part 1\\DSAL-In-Csharp\\DSAL.csproj": {
+    "C:\\Users\\HadyW\\source\\repos\\Data Structure and Algorithms\\documentation\\part 1\\DSAL-In-Csharp\\DSAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\HadyW\\source\\repos\\Data Structure and Algorithms\\documentation\\part 1\\DSAL-In-Csharp\\DSAL.csproj",
+        "projectUniqueName": "C:\\Users\\HadyW\\source\\repos\\Data Structure and Algorithms\\documentation\\part 1\\DSAL-In-Csharp\\DSAL.csproj",
         "projectName": "DSAL",
-        "projectPath": "c:\\Users\\HadyW\\source\\repos\\Data Structure and Algorithms\\documentation\\part 1\\DSAL-In-Csharp\\DSAL.csproj",
+        "projectPath": "C:\\Users\\HadyW\\source\\repos\\Data Structure and Algorithms\\documentation\\part 1\\DSAL-In-Csharp\\DSAL.csproj",
         "packagesPath": "C:\\Users\\HadyW\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\HadyW\\source\\repos\\Data Structure and Algorithms\\documentation\\part 1\\DSAL-In-Csharp\\obj\\",
+        "outputPath": "C:\\Users\\HadyW\\source\\repos\\Data Structure and Algorithms\\documentation\\part 1\\DSAL-In-Csharp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
