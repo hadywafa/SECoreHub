@@ -1,3 +1,5 @@
+using System.Drawing;
+
 namespace DSAL;
 public class Node<T>
 {
@@ -14,6 +16,7 @@ public class HwLinkedList<T>
 {
     private Node<T>? Head { get; set; }
     private Node<T>? Tail { get; set; }
+    private int Count { get; set; }
     //-------------------------------------------------
     private bool IsEmpty()
     {
@@ -49,11 +52,12 @@ public class HwLinkedList<T>
             Head = Tail = newNode;
         else
         {
-            //add the newNode after last node
-            //point newNode as next-node for current-last-node 
+            //point newNode as next for last-node 
             Tail!.Next = newNode;
             //update tail reference
             Tail = newNode;
+            //update count
+            Count++;
         }
 
     }
@@ -65,10 +69,12 @@ public class HwLinkedList<T>
             Tail = Head = newNode;
         else
         {
-            //point current-first-node as next-node for newNode
+            //point first-node as next for newNode
             newNode.Next = Head;
             //update head reference
             Head = newNode;
+            //update count
+            Count++;
         }
     }
 
@@ -88,6 +94,7 @@ public class HwLinkedList<T>
     {
         return IndexOf(value) != -1;// Not found
     }
+
     public void RemoveFirst()
     {
         if (IsEmpty())
@@ -101,9 +108,10 @@ public class HwLinkedList<T>
             Head!.Next = null;
             //update Head reference
             Head = secondNode;
+            //update count
+            Count--;
         }
     }
-
     public void RemoveLast()
     {
         if (IsEmpty())
@@ -116,6 +124,20 @@ public class HwLinkedList<T>
             beforeLastNode.Next = null;
             //update tail reference
             Tail = beforeLastNode;
+            //update count
+            Count--;
         }
+    }
+    public T[] ToArray()
+    {
+        var current = Head;
+        var array = new T[Count];
+        var index = 0;
+        while (current != null)
+        {
+            array[index++] = current.Value;
+            current = current.Next;
+        }
+        return array;
     }
 }
