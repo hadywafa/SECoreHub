@@ -1,8 +1,66 @@
 using System.Text;
 
 namespace DSAL;
-public static class HwStack
+public class HwStack<T>
 {
+    private T[] array;
+    private int top;
+
+    public HwStack(int capacity)
+    {
+        if (capacity <= 0)
+            throw new ArgumentException("Capacity must be greater than 0");
+
+        array = new T[capacity];
+        top = -1;
+    }
+
+    public void Push(T item)
+    {
+        if (top == array.Length - 1)
+        {
+            // Stack is full, resize the array or throw an exception
+            Console.WriteLine("Stack overflow!");
+            return;
+        }
+
+        array[++top] = item;
+    }
+
+    public T Pop()
+    {
+        if (IsEmpty())
+        {
+            // Stack is empty, throw an exception or return a default value
+            Console.WriteLine("Stack underflow!");
+            return default(T);
+        }
+
+        return array[top--];
+    }
+
+    public T Peek()
+    {
+        if (IsEmpty())
+        {
+            // Stack is empty, throw an exception or return a default value
+            Console.WriteLine("Stack is empty!");
+            return default(T);
+        }
+
+        return array[top];
+    }
+
+    public bool IsEmpty()
+    {
+        return top == -1;
+    }
+
+    public int Count
+    {
+        get { return top + 1; }
+    }
+    //---------------------------------------------------------
     public static string Reverse(string input)
     {
         var stack = new Stack<char>();

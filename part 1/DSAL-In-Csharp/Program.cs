@@ -1,6 +1,6 @@
 ﻿using DSAL;
 
-#region Arrays Data Structure
+#region Array
 // int[] array1 = new int[3];
 // int[] array2 = new int[] { 1, 2, 4 };
 // int[] array3 = [1, 2, 4];
@@ -10,7 +10,7 @@
 // Array.Copy(array3, 2, array3, 2 + 1, array3.Length - 2);
 #endregion
 
-#region LinkedList Data Structure
+#region LinkedList
 //built-in implementation
 
 // var builtInLinkedList = new LinkedList<int>();
@@ -26,11 +26,53 @@
 // list.PrintList();
 #endregion
 
-#region   Stacks
-var result1 = HwStack.Reverse("hady");
-System.Console.WriteLine(result1);
-var result2 = HwStack.IsBalancedV1("( 1 + 1 ))");
-System.Console.WriteLine(result2);
-var result3 = HwStack.IsBalancedV2("(({ 1 + 1}))");
-System.Console.WriteLine(result3);
+#region Stacks
+//// ====================== custom implementation =========================
+// HwStack<int> myStack = new HwStack<int>(5);
+
+// myStack.Push(10);
+// myStack.Push(20);
+// myStack.Push(30);
+
+// Console.WriteLine("Top of the stack: " + myStack.Peek());
+// Console.WriteLine("Stack count: " + myStack.Count);
+
+// while (!myStack.IsEmpty())
+// {
+//     Console.WriteLine("Popped: " + myStack.Pop());
+// }
+//// ========================== built-in ==================================
+// var result1 = HwStack.Reverse("hady");
+// System.Console.WriteLine(result1);
+// var result2 = HwStack.IsBalancedV1("( 1 + 1 ))");
+// System.Console.WriteLine(result2);
+// var result3 = HwStack.IsBalancedV2("(({ 1 + 1}))");
+// System.Console.WriteLine(result3);
+#endregion
+
+#region Queue  
+// ====================== custom implementation =========================
+// var myQueue = new HwQueue<int>(5);
+
+// myQueue.Enqueue(10);
+// myQueue.Enqueue(20);
+// myQueue.Enqueue(30);
+
+// Console.WriteLine("Front of the queue: " + myQueue.Peek());
+// Console.WriteLine("Queue count: " + myQueue.Count);
+
+// while (!myQueue.IsEmpty())
+// {
+//     Console.WriteLine("Dequeued: " + myQueue.Dequeue());
+// }
+// ========================== built-in ==================================
+// var queue = new Queue<int>();
+
+// queue.Enqueue(10);
+// queue.Enqueue(20);
+// queue.Enqueue(30);
+// System.Console.WriteLine(HwQueue<int>.QueueToString(queue));
+
+// var result = HwQueue<int>.Reverse(queue);
+// System.Console.WriteLine(HwQueue<int>.QueueToString(queue));
 #endregion
