@@ -76,3 +76,14 @@
 // var result = HwQueue<int>.Reverse(queue);
 // System.Console.WriteLine(HwQueue<int>.QueueToString(queue));
 #endregion
+
+#region HashTables
+var result1 = HwHashTables.FindFirstNonRepeatingChar("hhaady waafa");
+System.Console.WriteLine(result1);
+//---------------
+var result2 = HwHashTables.FindFirstRepeatingChar("hhaady waafa");
+System.Console.WriteLine(result2);
+//---------------
+var uniqueArray = HwHashTables.RemoveDuplication([1, 1, 2, 2, 4, 5]);
+uniqueArray.PrintValues();
+#endregion
