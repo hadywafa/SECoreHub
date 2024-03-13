@@ -7,44 +7,72 @@ public class HwQueue<T>
     private T[] array;
     private int front;
     private int rear;
-
+    private int capacity;
+    public int Count
+    {
+        get
+        {
+            if (IsEmpty())
+            {
+                return 0;
+            }
+            else if (front <= rear)
+            {
+                return rear - front + 1;
+            }
+            else
+            {
+                return capacity - front + rear + 1;
+            }
+        }
+    }
     public HwQueue(int capacity)
     {
         if (capacity <= 0)
             throw new ArgumentException("Capacity must be greater than 0");
 
+        this.capacity = capacity;
         array = new T[capacity];
-        front = 0;
+        front = -1;
         rear = -1;
     }
 
     public void Enqueue(T item)
     {
-        if (rear == array.Length - 1)
+        if (IsFull())
         {
-            // Queue is full, resize the array or throw an exception
-            Console.WriteLine("Queue overflow!");
+            Console.WriteLine("Queue is full. Cannot enqueue.");
             return;
         }
 
-        array[++rear] = item;
+        if (IsEmpty())
+        {
+            front = 0;
+        }
+
+        rear = (rear + 1) % capacity;
+        array[rear] = item;
     }
 
     public T Dequeue()
     {
         if (IsEmpty())
         {
-            // Queue is empty, throw an exception or return a default value
-            Console.WriteLine("Queue underflow!");
+            Console.WriteLine("Queue is empty. Cannot dequeue.");
             return default(T);
         }
 
-        T item = array[front++];
-        if (front > rear)
+        T item = array[front];
+
+        if (front == rear)
         {
             // Reset front and rear when the last element is dequeued
-            front = 0;
+            front = -1;
             rear = -1;
+        }
+        else
+        {
+            front = (front + 1) % capacity;
         }
 
         return item;
@@ -54,8 +82,7 @@ public class HwQueue<T>
     {
         if (IsEmpty())
         {
-            // Queue is empty, throw an exception or return a default value
-            Console.WriteLine("Queue is empty!");
+            Console.WriteLine("Queue is empty. Cannot peek.");
             return default(T);
         }
 
@@ -64,12 +91,12 @@ public class HwQueue<T>
 
     public bool IsEmpty()
     {
-        return front > rear;
+        return front == -1 && rear == -1;
     }
 
-    public int Count
+    public bool IsFull()
     {
-        get { return rear - front + 1; }
+        return (rear + 1) % capacity == front;
     }
     //----------------------------------------------------------------
     public static Queue<T> Reverse(Queue<T> queue)

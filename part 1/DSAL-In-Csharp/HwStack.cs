@@ -5,46 +5,57 @@ public class HwStack<T>
 {
     private T[] array;
     private int top;
+    private int capacity;
 
     public HwStack(int capacity)
     {
         if (capacity <= 0)
             throw new ArgumentException("Capacity must be greater than 0");
 
+        this.capacity = capacity;
         array = new T[capacity];
         top = -1;
     }
-
     public void Push(T item)
     {
-        if (top == array.Length - 1)
+        if (IsFull())
         {
-            // Stack is full, resize the array or throw an exception
-            Console.WriteLine("Stack overflow!");
+            Console.WriteLine("Stack is full. Cannot push.");
             return;
         }
 
-        array[++top] = item;
+        top = (top + 1) % capacity;
+        array[top] = item;
     }
 
     public T Pop()
     {
         if (IsEmpty())
         {
-            // Stack is empty, throw an exception or return a default value
-            Console.WriteLine("Stack underflow!");
+            Console.WriteLine("Stack is empty. Cannot pop.");
             return default(T);
         }
 
-        return array[top--];
+        T item = array[top];
+
+        if (top == 0)
+        {
+            // Reset top when the last element is popped
+            top = capacity - 1;
+        }
+        else
+        {
+            top = (top - 1) % capacity;
+        }
+
+        return item;
     }
 
     public T Peek()
     {
         if (IsEmpty())
         {
-            // Stack is empty, throw an exception or return a default value
-            Console.WriteLine("Stack is empty!");
+            Console.WriteLine("Stack is empty. Cannot peek.");
             return default(T);
         }
 
@@ -56,6 +67,10 @@ public class HwStack<T>
         return top == -1;
     }
 
+    public bool IsFull()
+    {
+        return (top + 1) % capacity == 0;
+    }
     public int Count
     {
         get { return top + 1; }
