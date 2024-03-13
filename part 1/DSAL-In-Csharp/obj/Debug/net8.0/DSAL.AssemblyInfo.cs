@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DSAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6b37cb75f509bcec3e073b2328bbcc1bab0500c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7072481c432e3909ffa56a0ce79fe8caed3f6e9b")]
 [assembly: System.Reflection.AssemblyProductAttribute("DSAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DSAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
