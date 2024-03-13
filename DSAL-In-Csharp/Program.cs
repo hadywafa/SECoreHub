@@ -1,4 +1,4 @@
-﻿using DSAL;
+﻿using DSAL.Part1;
 
 #region Array
 // int[] array1 = new int[3];

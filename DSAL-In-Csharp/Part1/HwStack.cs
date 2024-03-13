@@ -1,6 +1,7 @@
 using System.Text;
 
-namespace DSAL;
+namespace DSAL.Part1;
+
 public class HwStack<T>
 {
     private T[] array;
@@ -16,6 +17,7 @@ public class HwStack<T>
         array = new T[capacity];
         top = -1;
     }
+
     public void Push(T item)
     {
         if (IsFull())
@@ -33,7 +35,7 @@ public class HwStack<T>
         if (IsEmpty())
         {
             Console.WriteLine("Stack is empty. Cannot pop.");
-            return default(T);
+            return default;
         }
 
         T item = array[top];
@@ -56,7 +58,7 @@ public class HwStack<T>
         if (IsEmpty())
         {
             Console.WriteLine("Stack is empty. Cannot peek.");
-            return default(T);
+            return default;
         }
 
         return array[top];
@@ -71,10 +73,12 @@ public class HwStack<T>
     {
         return (top + 1) % capacity == 0;
     }
+
     public int Count
     {
         get { return top + 1; }
     }
+
     //---------------------------------------------------------
     public static string Reverse(string input)
     {
@@ -100,15 +104,18 @@ public class HwStack<T>
         var stack = new Stack<char>();
         foreach (var item in input)
         {
-            if (item == '(') stack.Push(item);
+            if (item == '(')
+                stack.Push(item);
             if (item == ')')
             {
-                if (stack.Count == 0) return false;
+                if (stack.Count == 0)
+                    return false;
                 stack.Pop();
             }
         }
         return stack.Count == 0;
     }
+
     public static bool IsBalancedV2(string input)
     {
         var stack = new Stack<char>();
@@ -143,9 +150,9 @@ public class HwStack<T>
 
     private static bool IsMatchingPair(char opening, char closing)
     {
-        return (opening == '(' && closing == ')') ||
-               (opening == '[' && closing == ']') ||
-               (opening == '{' && closing == '}') ||
-               (opening == '<' && closing == '>');
+        return opening == '(' && closing == ')'
+            || opening == '[' && closing == ']'
+            || opening == '{' && closing == '}'
+            || opening == '<' && closing == '>';
     }
 }

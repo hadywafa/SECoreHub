@@ -1,6 +1,7 @@
 using System.Drawing;
 
-namespace DSAL;
+namespace DSAL.Part1;
+
 public class Node<T>
 {
     public T Value { get; set; }
@@ -12,27 +13,33 @@ public class Node<T>
         Next = null;
     }
 }
+
 public class HwLinkedList<T>
 {
     private Node<T>? Head { get; set; }
     private Node<T>? Tail { get; set; }
     private int Count { get; set; }
+
     //-------------------------------------------------
     private bool IsEmpty()
     {
         return Head == null;
     }
+
     private Node<T>? GetBefore(Node<T> node)
     {
-        if (IsEmpty() || Head == Tail) return null;
+        if (IsEmpty() || Head == Tail)
+            return null;
         var current = Head;
         while (current != null)
         {
-            if (current.Next == node) return current;
+            if (current.Next == node)
+                return current;
             current = current.Next;
         }
         return null;
     }
+
     public void PrintList()
     {
         var current = Head;
@@ -43,6 +50,7 @@ public class HwLinkedList<T>
         }
         Console.WriteLine();
     }
+
     //-------------------------------------------------
     public void AddLast(T value)
     {
@@ -52,15 +60,15 @@ public class HwLinkedList<T>
             Head = Tail = newNode;
         else
         {
-            //point newNode as next for last-node 
+            //point newNode as next for last-node
             Tail!.Next = newNode;
             //update tail reference
             Tail = newNode;
             //update count
             Count++;
         }
-
     }
+
     public void AddFirst(T value)
     {
         var newNode = new Node<T>(value);
@@ -84,15 +92,17 @@ public class HwLinkedList<T>
         var current = Head;
         while (current != null)
         {
-            if (EqualityComparer<T>.Default.Equals(current.Value, value)) return index;
+            if (EqualityComparer<T>.Default.Equals(current.Value, value))
+                return index;
             index++;
             current = current.Next;
         }
-        return -1;// Not found
+        return -1; // Not found
     }
+
     public bool Contains(T value)
     {
-        return IndexOf(value) != -1;// Not found
+        return IndexOf(value) != -1; // Not found
     }
 
     public void RemoveFirst()
@@ -103,7 +113,6 @@ public class HwLinkedList<T>
         var secondNode = Head?.Next;
         if (secondNode != null)
         {
-
             //remove first-node link
             Head!.Next = null;
             //update Head reference
@@ -112,11 +121,12 @@ public class HwLinkedList<T>
             Count--;
         }
     }
+
     public void RemoveLast()
     {
         if (IsEmpty())
             throw new Exception();
-        //get before-last-node 
+        //get before-last-node
         var beforeLastNode = GetBefore(Tail!);
         if (beforeLastNode != null)
         {
@@ -128,6 +138,7 @@ public class HwLinkedList<T>
             Count--;
         }
     }
+
     public T[] ToArray()
     {
         var current = Head;
@@ -140,13 +151,15 @@ public class HwLinkedList<T>
         }
         return array;
     }
+
     /// <summary>
     /// Reverses the order of elements in the linked list.
     /// </summary>
     public void Reverse()
     {
         // Check if the linked list is empty
-        if (IsEmpty()) return;
+        if (IsEmpty())
+            return;
 
         // Initialize variables to keep track of nodes during reversal
         var previous = Head;
@@ -167,9 +180,8 @@ public class HwLinkedList<T>
         }
 
         // Adjust Head and Tail after reversal
-        Tail = Head;        // The original Head is now the new Tail
-        Tail.Next = null;   // Set the new Tail's Next to null to indicate the end of the list
-        Head = previous;    // The last node in the original list is now the new Head
+        Tail = Head; // The original Head is now the new Tail
+        Tail.Next = null; // Set the new Tail's Next to null to indicate the end of the list
+        Head = previous; // The last node in the original list is now the new Head
     }
-
 }

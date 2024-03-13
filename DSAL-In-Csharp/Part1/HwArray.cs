@@ -1,4 +1,5 @@
-namespace DSAL;
+namespace DSAL.Part1;
+
 public static class ArrayExtensions
 {
     public static void PrintValues<T>(this T[] array)

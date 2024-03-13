@@ -1,8 +1,7 @@
-
-
 using System.Data;
 
-namespace DSAL;
+namespace DSAL.Part1;
+
 public class HwHashTables
 {
     public static char FindFirstNonRepeatingChar(string str)
@@ -21,14 +20,17 @@ public class HwHashTables
         foreach (var item in str)
         {
             dictionary.TryGetValue(item, out int charCount);
-            if (charCount == 1) return item;
+            if (charCount == 1)
+                return item;
         }
         return char.MinValue;
     }
+
     public static int[] RemoveDuplication(int[] duplicatedArray)
     {
         return new HashSet<int>(duplicatedArray).ToArray();
     }
+
     public static char FindFirstRepeatingChar(string str)
     {
         #region  Solution 1
@@ -52,7 +54,8 @@ public class HwHashTables
         var uniqueArray = new HashSet<int>();
         foreach (var item in str)
         {
-            if (uniqueArray.Contains(item)) return item;
+            if (uniqueArray.Contains(item))
+                return item;
             uniqueArray.Add(item);
         }
         return char.MinValue;

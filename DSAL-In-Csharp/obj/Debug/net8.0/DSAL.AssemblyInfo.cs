@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DSAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72e8fb587bd21ce08e91f7db503a62177cabb114")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f76c18992374928458393844476e089d054209ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("DSAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DSAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

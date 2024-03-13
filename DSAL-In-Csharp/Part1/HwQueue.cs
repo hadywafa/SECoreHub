@@ -1,7 +1,7 @@
-
 using System.Runtime.InteropServices;
 
-namespace DSAL;
+namespace DSAL.Part1;
+
 public class HwQueue<T>
 {
     private T[] array;
@@ -26,6 +26,7 @@ public class HwQueue<T>
             }
         }
     }
+
     public HwQueue(int capacity)
     {
         if (capacity <= 0)
@@ -59,11 +60,11 @@ public class HwQueue<T>
         if (IsEmpty())
         {
             Console.WriteLine("Queue is empty. Cannot dequeue.");
-            return default(T);
+            return default;
         }
 
         T item = array[front];
-        array[front] = default(T);
+        array[front] = default;
 
         if (front == rear)
         {
@@ -84,7 +85,7 @@ public class HwQueue<T>
         if (IsEmpty())
         {
             Console.WriteLine("Queue is empty. Cannot peek.");
-            return default(T);
+            return default;
         }
 
         return array[front];
@@ -99,6 +100,7 @@ public class HwQueue<T>
     {
         return (rear + 1) % capacity == front;
     }
+
     //----------------------------------------------------------------
     public static Queue<T> Reverse(Queue<T> queue)
     {
@@ -110,6 +112,7 @@ public class HwQueue<T>
             queue.Enqueue(stack.Pop());
         return queue;
     }
+
     public static string QueueToString(Queue<T> queue)
     {
         return "[" + string.Join(", ", queue) + "]";
