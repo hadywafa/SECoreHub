@@ -63,6 +63,7 @@ public class HwQueue<T>
         }
 
         T item = array[front];
+        array[front] = default(T);
 
         if (front == rear)
         {
