@@ -96,5 +96,6 @@ using DSAL.Part1;
 #region BubbleSort
 BubbleSort.SortV2([1, 1, 8, 10, 4, 4, 5]).PrintValues();
 SelectionSort.SortV1([1, 1, 8, 10, 4, 4, 5]).PrintValues();
-InsertionSort.SortV1([1, 1, 8, 10, 4, 4, 5]).PrintValues(); 
+InsertionSort.SortV1([1, 1, 8, 10, 4, 4, 5]).PrintValues();
+MergeSort.Sort([1, 1, 8, 10, 4, 4, 5]).PrintValues(); 
 #endregion
