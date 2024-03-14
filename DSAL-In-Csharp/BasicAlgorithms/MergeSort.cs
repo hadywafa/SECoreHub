@@ -33,10 +33,12 @@ public class MergeSort
 
     static void Merge(int[] left, int[] right, int[] result)
     {
-        int i = 0;
-        int j = 0;
-        int k = 0;
+        int i = 0; // Index for the left array
+        int j = 0; // Index for the right array
+        int k = 0; // Index for the merged result array
 
+        // Compare elements from left and right arrays
+        // and merge them into the result array in sorted order
         while (i < left.Length && j < right.Length)
         {
             if (left[i] <= right[j])
@@ -44,9 +46,12 @@ public class MergeSort
             else
                 result[k++] = right[j++];
         }
+
+        // Add any remaining elements from the left array to the result array
         while (i < left.Length)
             result[k++] = left[i++];
 
+        // Add any remaining elements from the right array to the result array
         while (j < right.Length)
             result[k++] = right[j++];
     }
