@@ -1,5 +1,8 @@
-﻿using DSAL.Part1;
+﻿using DSAL.BasicAlgorithms;
+using DSAL.Extensions;
+using DSAL.Part1;
 
+//----------------------- Basic Data Structure ------------------------------
 #region Array
 // int[] array1 = new int[3];
 // int[] array2 = new int[] { 1, 2, 4 };
@@ -50,7 +53,7 @@
 // System.Console.WriteLine(result3);
 #endregion
 
-#region Queue  
+#region Queue
 // ====================== custom implementation =========================
 // var myQueue = new HwQueue<int>(5);
 
@@ -78,12 +81,20 @@
 #endregion
 
 #region HashTables
-var result1 = HwHashTables.FindFirstNonRepeatingChar("hhaady waafa");
-System.Console.WriteLine(result1);
-//---------------
-var result2 = HwHashTables.FindFirstRepeatingChar("hhaady waafa");
-System.Console.WriteLine(result2);
-//---------------
-var uniqueArray = HwHashTables.RemoveDuplication([1, 1, 2, 2, 4, 5]);
-uniqueArray.PrintValues();
+//var result1 = HwHashTables.FindFirstNonRepeatingChar("hhaady waafa");
+//System.Console.WriteLine(result1);
+////---------------
+//var result2 = HwHashTables.FindFirstRepeatingChar("hhaady waafa");
+//System.Console.WriteLine(result2);
+////---------------
+//var uniqueArray = HwHashTables.RemoveDuplication([1, 1, 2, 2, 4, 5]);
+//uniqueArray.PrintValues();
+#endregion
+
+//----------------------- Basic Algorithms ------------------------------
+
+#region BubbleSort
+BubbleSort.SortV2([1, 1, 8, 10, 4, 4, 5]).PrintValues();
+SelectionSort.SortV1([1, 1, 8, 10, 4, 4, 5]).PrintValues();
+InsertionSort.SortV1([1, 1, 8, 10, 4, 4, 5]).PrintValues(); 
 #endregion
