@@ -1,6 +1,6 @@
 # Day 1
 
-## 📌 Two SUM
+## 📌 1. Two SUM
 
 ### ⁉️ Problem
 
@@ -59,7 +59,7 @@ You can return the answer in any order.
 
 ---
 
-## 📌 [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+## 📌 2. [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
 
 ### ⁉️ Problem
 
@@ -121,4 +121,48 @@ You can return the answer in any order.
         }
 
         return false;
+```
+
+---
+
+## 📌 3. [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+
+### ⁉️ Problem
+
+**Example 1:**
+
+**Input:** `s = "Yamal"`  
+**Output:** `true`  
+**Explanation:** "yamal" is a palindrome.
+
+**Example 2:**
+
+**Input:** `s = "A man, a plan, a canal: Panama"`  
+**Output:** `true`  
+**Explanation:** "amanaplanacanalpanama" is a palindrome.
+
+**Example 3:**
+
+**Input:** `s = "race a car"`  
+**Output:** `false`  
+**Explanation:** "raceacar" is not a palindrome.
+
+### ✅ Solution 1
+
+```cs
+    public static bool IsPalindrome(string s)
+    {
+        //lamal
+        string cleanInput = Regex.Replace(s.ToLower(), "[^a-zA-Z0-9]", "");
+
+        var index = cleanInput.Length / 2;
+
+        for (int i = 0; i < index; i++)
+        {
+            if (cleanInput[i] != cleanInput[cleanInput.Length - (i + 1)])
+                return false;
+        }
+
+        return true;
+    }
 ```

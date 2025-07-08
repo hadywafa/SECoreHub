@@ -1,8 +1,8 @@
-﻿
+﻿using MicrosoftInterview.Day1;
 
-using MicrosoftInterview.Day1;
+string input = "A man, a plan, a canal: Panama";
+// string input = "lamal";
 
-var result = Solution.ContainsDuplicate(true, [1,1,1,3,3,4,3,2,4,2]);
+var result = Solution.IsPalindrome(input);
 
 Console.WriteLine(result);
-
