@@ -56,3 +56,69 @@ You can return the answer in any order.
         return [];
     }
 ```
+
+---
+
+## 📌 [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+
+### ⁉️ Problem
+
+**Example 1:**
+
+**Input:** `nums = [1,2,3,4]`  
+**Output:** `false`  
+**Explanation:** All elements are distinct.
+
+**Example 2:**
+
+**Input:** `nums = [1,2,3,1]`  
+**Output:** `true`  
+**Explanation:** The element 1 occurs at the indices 0 and 3.
+
+### ✅ Solution 1
+
+```cs
+    public static bool ContainsDuplicate(int[] nums)
+    {
+        // x = loop1 foreach number and store temo each item value
+        // y = loop2 foreach again over numbers and any item equal to temp value then return true <Note skip current item index for second loop>
+        //[1,2,3,1]
+
+        var uniqueList = new List<int> { nums[0] };
+
+        for (int x = 1; x < nums.Length; x++)
+        {
+            if (uniqueList.Contains(nums[x]))
+                return true;
+            uniqueList.Add(nums[x]);
+        }
+        return false;
+    }
+```
+
+```cs
+    public static bool ContainsDuplicate(bool theBest, int[] nums)
+    {
+        var map = new Dictionary<int, int>();
+        foreach (var num in nums)
+        {
+            if (!map.TryAdd(num, 1))
+                return true;
+        }
+
+        return false;
+    }
+```
+
+```cs
+        var numbers = new HashSet<int>();
+
+        foreach (int number in nums)
+        {
+            if (numbers.Contains(number))
+                return true;
+            numbers.Add(number);
+        }
+
+        return false;
+```

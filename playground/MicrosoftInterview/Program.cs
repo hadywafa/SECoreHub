@@ -2,7 +2,7 @@
 
 using MicrosoftInterview.Day1;
 
-var result = Solution.TwoSum(true,[3,2,4], 6);
+var result = Solution.ContainsDuplicate(true, [1,1,1,3,3,4,3,2,4,2]);
 
-Console.WriteLine(result?.HwToString());
+Console.WriteLine(result);
 

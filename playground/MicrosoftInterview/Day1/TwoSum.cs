@@ -1,6 +1,6 @@
 namespace MicrosoftInterview.Day1;
 
-public class Solution
+public partial class Solution
 {
     // foreach item in array
     // foreach item in array
