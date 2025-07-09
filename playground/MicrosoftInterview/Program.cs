@@ -1,10 +1,8 @@
 ﻿using MicrosoftInterview;
 
-var s = "anagram";
-// var s = "aa";
-var t = "nagaram";
-// var t = "bb";
+string[] strs = ["flower", "flow", "flight"];
 
-var result = Solution.IsAnagram(s, t);
+
+var result = Solution.LongestCommonPrefix(strs);
 
 Console.WriteLine(result);
