@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace MicrosoftInterview.Day1;
+namespace MicrosoftInterview;
 
 public partial class Solution
 {

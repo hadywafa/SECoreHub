@@ -1,8 +1,10 @@
-﻿using MicrosoftInterview.Day1;
+﻿using MicrosoftInterview;
 
-string input = "A man, a plan, a canal: Panama";
-// string input = "lamal";
+// var s = "anagram";
+var s = "aa";
+// var t = "nagaram";
+var t = "bb";
 
-var result = Solution.IsPalindrome(input);
+var result = Solution.IsAnagram(s, t);
 
 Console.WriteLine(result);
