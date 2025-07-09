@@ -4,14 +4,14 @@ public partial class Solution
 {
     // foreach item in array
     // foreach item in array
-    // if item[i] + item+1 = target 
+    // if item[i] + item+1 = target
 
 
     public static int[] TwoSum(int[] nums, int target)
     {
         // foreach item in array
         // foreach item in array
-        // if item[i] + item+1 = target 
+        // if item[i] + item+1 = target
 
         for (int i = 0; i < nums.Length; i++)
         {
@@ -42,11 +42,4 @@ public partial class Solution
         }
         return new int[] { };
     }
-}
-
-// 
-public static class StringExtensions
-{
-
-    public static string HwToString(this int[] array) => "[" + string.Join(",", array) + "]";
 }
