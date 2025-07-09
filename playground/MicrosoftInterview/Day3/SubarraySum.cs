@@ -4,40 +4,25 @@ public partial class Solution
 {
     public static int SubArraySum(int[] nums, int k)
     {
-        var count = 0;
+        int count = 0;
 
+        // Loop through each starting index for subarray
         for (int i = 0; i < nums.Length; i++)
         {
-            var tempList = new List<int>() { nums[i] };
+            int sum = 0;
 
-            if (nums[i] == k)
-            {
-                count++;
-                // break;
-            }
-
+            // Expand the subarray from index i onward
             for (int j = i; j < nums.Length; j++)
             {
-                if ((j + 1) == nums.Length)
-                    break;
+                sum += nums[j]; // add next element
 
-                var nextItem = nums[j + 1];
-
-                tempList.Add(nextItem);
-                var sum = tempList.Sum();
-                if (sum < k)
+                if (sum == k)
                 {
-                    continue;
+                    count++; // found a valid subarray
                 }
-                else if (sum == k)
-                {
-                    count++;
-                    continue;
-                }
-                else
-                    break;
             }
         }
+
         return count;
     }
 }
