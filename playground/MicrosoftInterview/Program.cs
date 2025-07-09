@@ -1,7 +1,12 @@
 ﻿using MicrosoftInterview;
 
-int[] nums = [1,2,1,2,1];
+int[] nums = [100,1,2,3,100,1,2,3,4];
+// int[] nums = [1,-1,0];
+// int[] nums = [1, 1, 1];
+
 int k = 3;
+// int k = 0;
+// int k = 2;
 
 var result = Solution.SubArraySum(nums, k);
 
