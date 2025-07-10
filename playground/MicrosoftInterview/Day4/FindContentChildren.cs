@@ -11,26 +11,25 @@ public partial class Solution
         Array.Sort(s);
         //-------------------------
         int happyChildrenCount = 0;
+        int pointerForCurrentChild = 0;
         int pointerForUsedCookie = 0;
         //-------------------------
-        for (int i = 0; i < g.Length; i++)
+        while (pointerForCurrentChild < g.Length && pointerForUsedCookie < s.Length)
         {
-            if (pointerForUsedCookie == s.Length)
-                break;
+            // var currentChildGreed = g[pointerForCurrentChild];
+            // var currentCookieSize = s[pointerForUsedCookie];
 
-            var currentChildGreed = g[i];
-            var currentCookieSize = s[pointerForUsedCookie];
-
-            if (currentChildGreed > currentCookieSize)
-                break;
-
-            if (currentChildGreed <= currentCookieSize)
+            if (s[pointerForUsedCookie] >= g[pointerForCurrentChild])
             {
                 happyChildrenCount++;
+                pointerForCurrentChild++;
+                pointerForUsedCookie++;
+            }
+            else
+            {
                 pointerForUsedCookie++;
             }
         }
-
         return happyChildrenCount;
     }
 }
