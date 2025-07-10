@@ -1,8 +1,9 @@
 ﻿using MicrosoftInterview;
 
-int[] prices = [7,1,5,3,6,4];
-// int[] prices = [7,6,4,3,1];
+// string s = "()[]{}";
+// string s = "(]";
+string s = "([])";
 
-var result = Solution.MaxProfit(prices);
+var result = Solution.IsValidParentheses(s);
 
 Console.WriteLine(result);
