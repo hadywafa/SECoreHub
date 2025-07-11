@@ -1,14 +1,9 @@
-﻿using DSAL.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DSAL.BasicAlgorithms;
+﻿namespace DSAL.BasicAlgorithms;
 
 public class CountingSort
 {
+    public static void Run() { }
+
     // [1, 1, 8, 10, 4, 4, 5]
     public static int[] Sort(int[] array)
     {

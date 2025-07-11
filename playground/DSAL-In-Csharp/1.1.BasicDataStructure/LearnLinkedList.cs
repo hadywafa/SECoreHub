@@ -2,19 +2,30 @@ using System.Drawing;
 
 namespace DSAL.Part1;
 
-public class Node<T>
+public class LearnLinkedList
 {
-    public T Value { get; set; }
-    public Node<T>? Next { get; set; }
-
-    public Node(T value)
+    public LearnLinkedList()
     {
-        Value = value;
-        Next = null;
+        //built-in implementation
+        var builtInLinkedList = new LinkedList<int>();
+
+        // custom implementation
+
+        var list = new CustomLinkedList<int>();
+        list.AddLast(10);
+        list.AddLast(20);
+        list.AddLast(30);
+        list.PrintList();
+        System.Console.WriteLine(list.IndexOf(20));
+        System.Console.WriteLine(list.Contains(50));
+        list.Reverse();
+        list.PrintList();
     }
 }
 
-public class HwLinkedList<T>
+//-----------------------------------------------
+
+public class CustomLinkedList<T>
 {
     private Node<T>? Head { get; set; }
     private Node<T>? Tail { get; set; }
@@ -183,5 +194,17 @@ public class HwLinkedList<T>
         Tail = Head; // The original Head is now the new Tail
         Tail.Next = null; // Set the new Tail's Next to null to indicate the end of the list
         Head = previous; // The last node in the original list is now the new Head
+    }
+}
+
+public class Node<T>
+{
+    public T Value { get; set; }
+    public Node<T>? Next { get; set; }
+
+    public Node(T value)
+    {
+        Value = value;
+        Next = null;
     }
 }

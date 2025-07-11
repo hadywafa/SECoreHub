@@ -2,13 +2,43 @@ using System.Text;
 
 namespace DSAL.Part1;
 
-public class HwStack<T>
+public class LearnStack
+{
+    public LearnStack()
+    {
+        // ====================== custom implementation =========================
+        CustomStack<int> myStack = new CustomStack<int>(5);
+
+        myStack.Push(10);
+        myStack.Push(20);
+        myStack.Push(30);
+
+        Console.WriteLine("Top of the stack: " + myStack.Peek());
+        Console.WriteLine("Stack count: " + myStack.Count);
+
+        while (!myStack.IsEmpty())
+        {
+            Console.WriteLine("Popped: " + myStack.Pop());
+        }
+        // ========================== built-in ==================================
+        var result1 = CustomStack<string>.Reverse("hady");
+        System.Console.WriteLine(result1);
+        var result2 = CustomStack<string>.IsBalancedV1("( 1 + 1 ))");
+        System.Console.WriteLine(result2);
+        var result3 = CustomStack<string>.IsBalancedV2("(({ 1 + 1}))");
+        System.Console.WriteLine(result3);
+    }
+}
+
+//-----------------------------------------------
+
+public class CustomStack<T>
 {
     private T[] array;
     private int top;
     private int capacity;
 
-    public HwStack(int capacity)
+    public CustomStack(int capacity)
     {
         if (capacity <= 0)
             throw new ArgumentException("Capacity must be greater than 0");

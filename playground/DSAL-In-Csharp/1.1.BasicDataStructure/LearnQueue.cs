@@ -2,7 +2,40 @@ using System.Runtime.InteropServices;
 
 namespace DSAL.Part1;
 
-public class HwQueue<T>
+public class LearnQueue
+{
+    public LearnQueue()
+    {
+        // ====================== custom implementation =========================
+        var myQueue = new CustomQueue<int>(5);
+
+        myQueue.Enqueue(10);
+        myQueue.Enqueue(20);
+        myQueue.Enqueue(30);
+
+        Console.WriteLine("Front of the queue: " + myQueue.Peek());
+        Console.WriteLine("Queue count: " + myQueue.Count);
+
+        while (!myQueue.IsEmpty())
+        {
+            Console.WriteLine("Dequeued: " + myQueue.Dequeue());
+        }
+        // ========================== built-in ==================================
+        var queue = new Queue<int>();
+
+        queue.Enqueue(10);
+        queue.Enqueue(20);
+        queue.Enqueue(30);
+        System.Console.WriteLine(CustomQueue<int>.QueueToString(queue));
+
+        var result = CustomQueue<int>.Reverse(queue);
+        System.Console.WriteLine(CustomQueue<int>.QueueToString(queue));
+    }
+}
+
+//-----------------------------------------------
+
+public class CustomQueue<T>
 {
     private T[] array;
     private int front;
@@ -27,7 +60,7 @@ public class HwQueue<T>
         }
     }
 
-    public HwQueue(int capacity)
+    public CustomQueue(int capacity)
     {
         if (capacity <= 0)
             throw new ArgumentException("Capacity must be greater than 0");

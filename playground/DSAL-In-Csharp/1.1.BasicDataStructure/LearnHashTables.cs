@@ -2,7 +2,24 @@ using System.Data;
 
 namespace DSAL.Part1;
 
-public class HwHashTables
+public class LearnHashTable
+{
+    public LearnHashTable()
+    {
+        var result1 = CustomHashTable.FindFirstNonRepeatingChar("hhaady waafa");
+        System.Console.WriteLine(result1);
+        //---------------
+        var result2 = CustomHashTable.FindFirstRepeatingChar("hhaady waafa");
+        System.Console.WriteLine(result2);
+        //---------------
+        var uniqueArray = CustomHashTable.RemoveDuplication([1, 1, 2, 2, 4, 5]);
+        // uniqueArray?.PrintValues();
+    }
+}
+
+//-----------------------------------------------
+
+public class CustomHashTable
 {
     public static char FindFirstNonRepeatingChar(string str)
     {

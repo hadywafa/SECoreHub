@@ -1,15 +1,11 @@
 ﻿using DSAL.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DSAL.BasicAlgorithms;
 
 public class SelectionSort
 {
+    public static void Run() { }
+
     public static int[] SortV1(int[] array)
     {
         // [1, 1, 8, 10, 4, 4, 5]

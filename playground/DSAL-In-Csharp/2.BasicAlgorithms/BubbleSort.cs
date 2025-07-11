@@ -1,14 +1,18 @@
 ﻿using DSAL.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DSAL.BasicAlgorithms;
 
 public class BubbleSort
 {
+    public static void Run()
+    {
+        BubbleSort.SortV2([1, 1, 8, 10, 4, 4, 5]).PrintValues();
+        SelectionSort.SortV1([1, 1, 8, 10, 4, 4, 5]).PrintValues();
+        InsertionSort.SortV1([1, 1, 8, 10, 4, 4, 5]).PrintValues();
+        MergeSort.Sort([1, 1, 8, 10, 4, 4, 5]).PrintValues();
+        CountingSort.Sort([1, 1, 8, 10, 4, 4, 5]).PrintValues(); 
+    }
+
     public static int[] SortV1(int[] array)
     {
         // [1, 1, 8, 10, 4, 4, 5]

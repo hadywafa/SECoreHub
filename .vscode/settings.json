@@ -12,6 +12,7 @@
         "**/bin": true,
         "**/obj": true,
         "**/*.sln": true,
+        "**/*.vs": true,
     },
     "explorerExclude.backup": {}
 }
