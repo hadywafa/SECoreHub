@@ -7,22 +7,20 @@ public partial class Solution
         //[0,1,0,3,12]
         //[0,0,1]
         //-------------------------------------
-        for (int i = 0; i < nums.Length; i++)
+        var left = 0;
+        var right = 1;
+
+        while (right < nums.Length)
         {
-            if (nums[i] == 0)
-                continue;
-
-            for (int j = i; j > 0; j--)
+            if (nums[left] == 0 && nums[right] != 0)
             {
-                var current = nums[j];
-                var prev = nums[j - 1];
-
-                if (prev != 0)
-                    break;
-
-                nums[j] = prev;
-                nums[j - 1] = current;
+                (nums[right], nums[left]) = (nums[left], nums[right]);
             }
+
+            right++;
+
+            if (nums[left] != 0 && left < right - 1)
+                left++;
         }
 
         System.Console.WriteLine(nums.HwToString());
