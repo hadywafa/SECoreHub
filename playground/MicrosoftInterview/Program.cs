@@ -1,6 +1,7 @@
 ﻿using MicrosoftInterview;
 
-int[] nums = [0,1,0,3,12];
-// int[] nums = [0, 0, 1];
+int[][] nums = [[1,3],[2,6],[8,10],[15,18]];
 
-Solution.MoveZeroes(nums);
+var result = Solution.MergeIntervals(nums);
+
+System.Console.WriteLine(result.HwToString());
