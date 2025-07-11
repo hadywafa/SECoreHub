@@ -1,10 +1,10 @@
 using System.Drawing;
 
-namespace DSAL.Part1;
+namespace DSA.BasicDataStructure;
 
 public class LearnLinkedList
 {
-    public LearnLinkedList()
+    public static void Run()
     {
         //built-in implementation
         var builtInLinkedList = new LinkedList<int>();

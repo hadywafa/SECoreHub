@@ -1,8 +1,8 @@
-namespace DSAL.Part1;
+namespace DSA.BasicDataStructure;
 
 public class LearnArray
 {
-    public LearnArray()
+    public static void Run()
     {
         int[] array1 = new int[3];
         int[] array2 = new int[] { 1, 2, 4 };

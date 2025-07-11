@@ -1,4 +1,4 @@
-﻿namespace DSAL.BasicAlgorithms;
+﻿namespace DSA.BasicAlgorithms;
 
 public class InsertionSort
 {

@@ -1,10 +1,10 @@
 using System.Text;
 
-namespace DSAL.Part1;
+namespace DSA.BasicDataStructure;
 
 public class LearnStack
 {
-    public LearnStack()
+    public static void Run()
     {
         // ====================== custom implementation =========================
         CustomStack<int> myStack = new CustomStack<int>(5);

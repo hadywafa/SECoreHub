@@ -1,6 +1,6 @@
-﻿using DSAL.Extensions;
+﻿using DSA.Extensions;
 
-namespace DSAL.BasicAlgorithms;
+namespace DSA.BasicAlgorithms;
 
 public class BubbleSort
 {

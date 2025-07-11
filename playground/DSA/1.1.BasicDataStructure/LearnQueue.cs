@@ -1,10 +1,10 @@
 using System.Runtime.InteropServices;
 
-namespace DSAL.Part1;
+namespace DSA.BasicDataStructure;
 
 public class LearnQueue
 {
-    public LearnQueue()
+    public static void Run()
     {
         // ====================== custom implementation =========================
         var myQueue = new CustomQueue<int>(5);

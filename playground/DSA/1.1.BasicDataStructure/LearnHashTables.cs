@@ -1,10 +1,10 @@
 using System.Data;
 
-namespace DSAL.Part1;
+namespace DSA.BasicDataStructure;
 
 public class LearnHashTable
 {
-    public LearnHashTable()
+    public static void Run()
     {
         var result1 = CustomHashTable.FindFirstNonRepeatingChar("hhaady waafa");
         System.Console.WriteLine(result1);
