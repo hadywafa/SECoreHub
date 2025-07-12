@@ -11,9 +11,12 @@ public class P2
             [23, 30, 34, 60]
         ];
         int target = 3;
-        var result = SearchMatrix(nums, target);
+        var result = SearchMatrix(matrix, target);
         System.Console.WriteLine(result);
     }
 
-    public bool SearchMatrix(int[][] matrix, int target) { }
+    public static bool SearchMatrix(int[][] matrix, int target)
+    {
+        return false;
+    }
 }
