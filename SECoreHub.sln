@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "playground", "playground", "{12E5C810-18C6-BE57-4EA6-3F3BE821652E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeetCode", "playground\HwNeetCode\NeetCode.csproj", "{599A84E8-5E7F-F307-CF31-6C8F4E063A64}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeetCode", "playground\NeetCode\NeetCode.csproj", "{599A84E8-5E7F-F307-CF31-6C8F4E063A64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicrosoftInterview", "playground\MicrosoftInterview\MicrosoftInterview.csproj", "{AA8A9ABD-CE1F-0C6A-1A6F-A21284147C6F}"
 EndProject
