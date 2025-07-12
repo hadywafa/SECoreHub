@@ -1,1 +1,1 @@
-﻿NeetCode.BinarySearch.P2.Run();
+﻿NeetCode.LinkedList.P1.Run();
