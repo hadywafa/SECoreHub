@@ -1,3 +1,5 @@
+using System.Data;
+
 namespace NeetCode.BinarySearch;
 
 public class P1
@@ -6,25 +8,27 @@ public class P1
     {
         int[] nums = [-1, 0, 3, 5, 9, 12];
         int target = 9;
-        var result = Search(nums, target);
+        var result = Search_Solution1(nums, target);
         System.Console.WriteLine(result);
     }
 
-    public static int Search(int[] nums, int target)
+    // ✅ Solution 😎⚡
+    public static int Search_Solution1(int[] nums, int target)
     {
         int length = nums.Length;
         int pointer = (length / 2);
         int? dir = null;
         while (pointer >= 0 && pointer < length)
         {
-            if (nums[pointer] == target)
+            int current = nums[pointer];
+            if (current == target)
                 return pointer;
-            else if (nums[pointer] < target && dir != 0)
+            else if (current < target && dir != 0)
             {
                 pointer++;
                 dir = 1;
             }
-            else if (nums[pointer] > target && dir != 1)
+            else if (current > target && dir != 1)
             {
                 pointer--;
                 dir = 0;
