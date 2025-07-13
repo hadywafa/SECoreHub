@@ -1,4 +1,4 @@
-namespace HwNeetCode;
+namespace NeetCode;
 
 public static class StringExtensions
 {

@@ -1,10 +1,11 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "playground", "playground", "{12E5C810-18C6-BE57-4EA6-3F3BE821652E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HwNeetCode", "playground\HwNeetCode\HwNeetCode.csproj", "{4003679D-E17B-D3F4-EC3C-D5AC40C98AA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeetCode", "playground\NeetCode\NeetCode.csproj", "{599A84E8-5E7F-F307-CF31-6C8F4E063A64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicrosoftInterview", "playground\MicrosoftInterview\MicrosoftInterview.csproj", "{AA8A9ABD-CE1F-0C6A-1A6F-A21284147C6F}"
 EndProject
@@ -16,10 +17,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4003679D-E17B-D3F4-EC3C-D5AC40C98AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4003679D-E17B-D3F4-EC3C-D5AC40C98AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4003679D-E17B-D3F4-EC3C-D5AC40C98AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4003679D-E17B-D3F4-EC3C-D5AC40C98AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{599A84E8-5E7F-F307-CF31-6C8F4E063A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{599A84E8-5E7F-F307-CF31-6C8F4E063A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{599A84E8-5E7F-F307-CF31-6C8F4E063A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{599A84E8-5E7F-F307-CF31-6C8F4E063A64}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AA8A9ABD-CE1F-0C6A-1A6F-A21284147C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AA8A9ABD-CE1F-0C6A-1A6F-A21284147C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA8A9ABD-CE1F-0C6A-1A6F-A21284147C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,7 +34,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4003679D-E17B-D3F4-EC3C-D5AC40C98AA0} = {12E5C810-18C6-BE57-4EA6-3F3BE821652E}
+		{599A84E8-5E7F-F307-CF31-6C8F4E063A64} = {12E5C810-18C6-BE57-4EA6-3F3BE821652E}
 		{AA8A9ABD-CE1F-0C6A-1A6F-A21284147C6F} = {12E5C810-18C6-BE57-4EA6-3F3BE821652E}
 		{A1AA0DCE-F134-4DE6-829E-6406B376D4B4} = {12E5C810-18C6-BE57-4EA6-3F3BE821652E}
 	EndGlobalSection

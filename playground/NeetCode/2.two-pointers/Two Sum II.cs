@@ -1,5 +1,3 @@
-namespace HwNeetCode.TwoPointers;
-
 public partial class Solution
 {
     public static int[] TwoSumII(int[] numbers, int target)

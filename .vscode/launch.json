@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/playground/HwNeetCode/bin/Debug/net9.0/HwNeetCode.dll",
+            "program": "${workspaceFolder}/playground/NeetCode/bin/Debug/net9.0/NeetCode.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/playground/HwNeetCode",
+            "cwd": "${workspaceFolder}/playground/NeetCode",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
