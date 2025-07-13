@@ -6,29 +6,33 @@ public static class P1
     {
         //------------------------------------------
         int[] values = [1, 2, 3, 4, 5];
+        // int[] values = [];
         var head = CreateLinkedList(values.Reverse().ToArray());
         var result = ReverseList_Solution1(head);
         Console.WriteLine(head);
     }
 
-    public static ListNode ReverseList_Solution1(ListNode head)
+    public static ListNode ReverseList_Solution1(ListNode? head)
     {
         // var reversedList = new ListNode(head.val);
 
-        ListNode? next = null;
-        ListNode? current = null;
+        // ListNode? next = null;
+        if (head == null)
+            return head;
+        Stack<int> values = [];
         while (true)
         {
-            current.next = current.next = new ListNode(current.val);
-
-            next = next.next;
-            if (current.next == null)
+            if (head.next == null)
             {
+                values.Push(head.val);
                 break;
             }
+            values.Push(head.val);
+            head = head.next;
         }
 
-        return next;
+        var result = CreateLinkedList(values.ToArray());
+        return result;
     }
 
     public static ListNode CreateLinkedList(int[] values)
