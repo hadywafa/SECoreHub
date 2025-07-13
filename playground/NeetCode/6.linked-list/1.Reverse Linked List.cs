@@ -8,10 +8,28 @@ public static class P1
         int[] values = [1, 2, 3, 4, 5];
         // int[] values = [];
         var head = CreateLinkedList(values.Reverse().ToArray());
-        var result = ReverseList_Solution1(head);
-        Console.WriteLine(head);
+        var result = ReverseList_Solution2(head);
+        Console.WriteLine(result);
     }
 
+    // ⁉️🤖
+    public static ListNode ReverseList_Solution2(ListNode? head)
+    {
+        ListNode? prev = null;
+        ListNode? current = head;
+
+        while (current != null)
+        {
+            ListNode? next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        return prev;
+    }
+
+    // ✅😎
     public static ListNode ReverseList_Solution1(ListNode? head)
     {
         // var reversedList = new ListNode(head.val);
@@ -19,14 +37,10 @@ public static class P1
         // ListNode? next = null;
         if (head == null)
             return head;
+
         Stack<int> values = [];
-        while (true)
+        while (head != null)
         {
-            if (head.next == null)
-            {
-                values.Push(head.val);
-                break;
-            }
             values.Push(head.val);
             head = head.next;
         }
@@ -35,7 +49,7 @@ public static class P1
         return result;
     }
 
-    public static ListNode CreateLinkedList(int[] values)
+    private static ListNode CreateLinkedList(int[] values)
     {
         ListNode? head = null;
         ListNode? current = null;
