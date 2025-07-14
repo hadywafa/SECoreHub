@@ -4,8 +4,39 @@ public class P3
 {
     public static void Run()
     {
-
-        int?[] rootArr = [4,-7,-3,null,null,-9,-3,9,-7,-4,null,6,null,-6,-6,null,null,0,6,5,null,9,null,null,-1,-4,null,null,null,-2];
+        int?[] rootArr =
+        [
+            4,
+            -7,
+            -3,
+            null,
+            null,
+            -9,
+            -3,
+            9,
+            -7,
+            -4,
+            null,
+            6,
+            null,
+            -6,
+            -6,
+            null,
+            null,
+            0,
+            6,
+            5,
+            null,
+            9,
+            null,
+            null,
+            -1,
+            -4,
+            null,
+            null,
+            null,
+            -2
+        ];
         // int?[] rootArr = [4,-7,-3,null,null,-9,-3,9,-7,-4,null,6,null,-6,-6,null,null,0,6,5,null,9,null,null,-1,-4,null,null,null,-2];
         var root = TreeNode.BuildTree(rootArr);
 
@@ -13,27 +44,26 @@ public class P3
         Console.WriteLine(result);
     }
 
+    // 🤖
     public static int DiameterOfBinaryTree(TreeNode root)
     {
-        if (root == null)
-            return 0;
-
-
-        var depthLeft = root.left != null ? MaxDepth(root.left) : 0;
-        var depthRight = root.right != null ? MaxDepth(root.right) : 0;
-
-        return depthLeft + depthRight;
-
+        int max = 0;
+        Depth(root, ref max);
+        return max;
     }
-    
-    public static int MaxDepth(TreeNode? root)
+
+    static int Depth(TreeNode? node, ref int max)
     {
-        if (root == null)
+        if (node == null)
             return 0;
 
-        var depthLeft = root.left != null ? MaxDepth(root.left) + 1 : 1;
-        var depthRight = root.right != null ? MaxDepth(root.right) + 1 : 1;
+        int left = Depth(node.left, ref max);
+        int right = Depth(node.right, ref max);
 
-        return Math.Max(depthLeft, depthRight);
+        // update max diameter at this node
+        max = Math.Max(max, left + right);
+
+        // return depth to parent
+        return Math.Max(left, right) + 1;
     }
 }
