@@ -1,1 +1,1 @@
-﻿NeetCode.LinkedList.P3.Run();
+﻿NeetCode.Trees.P1.Run();
