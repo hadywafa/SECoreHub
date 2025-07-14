@@ -11,12 +11,25 @@ public class P1
         if (root == null)
             result = root;
         else
-            result = InvertTree(root);
+            result = InvertTree_S1(root);
         Console.WriteLine(result);
     }
 
-    public static TreeNode InvertTree(TreeNode root)
+    public static TreeNode InvertTree_S1(TreeNode root)
     {
-        return new TreeNode();
+        InvertTree(root);
+        return root;
     }
+
+    public static TreeNode? InvertTree(TreeNode? root)
+    {
+        if (root == null)
+            return null;
+        // 🔄 Swap children
+        TreeNode? temp = root.left;
+        root.left = InvertTree(root.right);
+        root.right = InvertTree(temp);
+
+        return root;
+    }    
 }
