@@ -25,7 +25,19 @@ public class P8
                 ,['.','6','.','.','.','.','2','8','.']
                 ,['.','.','.','4','1','9','.','.','5']
                 ,['.','.','.','.','8','.','.','7','9']];
-        var result = IsValidSudoku(board2);
+
+        char[][] board3 =
+                [['.', '.', '4', '.', '.', '.', '6', '3', '.'],
+                ['.', '.', '.', '.', '.', '.', '.', '.', '.'],
+                ['5', '.', '.', '.', '.', '.', '.', '9', '.'],
+                ['.', '.', '.', '5', '6', '.', '.', '.', '.'],
+                ['4', '.', '3', '.', '.', '.', '.', '.', '1'],
+                ['.', '.', '.', '7', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '5', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.', '.', '.']];
+
+        var result = IsValidSudoku(board3);
 
         System.Console.WriteLine(result);
     }
@@ -38,44 +50,37 @@ public class P8
 
         for (int i = 0; i < board.Length; i++)
         {
-            // x direction
             var tempX = new HashSet<char>();
-            // foreach (var item in board[i])
-            for (int j = 0; j < 9; j++)
-            {
-                var item = board[i][j];
-                if (item == '.')
-                    continue;
-                if (!tempX.Add(item))
-                    isUniqueX = false;
-            }
-
-            // y direction
             var tempY = new HashSet<char>();
-            for (int j = 0; j < 9; j++)
-            {
-                var item = board[j][0];
-                if (item == '.')
-                    continue;
-                if (!tempY.Add(item))
-                    isUniqueY = false;
-            }
-
-            // inside direction
             var tempInside = new HashSet<char>();
+            char item = '.';
             for (int j = 0; j < 9; j++)
             {
-                var minI = Math.Min(i, j / 3);
-                var minJ = Math.Min(j, i / 3);
-                var item = board[minI][minJ];
-                if (item == '.')
-                    continue;
-                if (!tempInside.Add(item))
+                // x direction
+                item = board[i][j];
+                if (IsDigit(item) && !tempX.Add(item))
+                    isUniqueX = false;
+
+                // y direction
+                item = board[j][i];
+                if (IsDigit(item) && !tempY.Add(item))
+                    isUniqueY = false;
+
+                // 🔞 inside direction
+                var row = (i / 3) * 3 + j / 3;
+                var col = (i % 3) * 3 + j % 3;
+                item = board[row][col];
+                if (IsDigit(item) && !tempInside.Add(item))
                     isUniqueInside = false;
             }
-            //Clear
 
         }
         return isUniqueX && isUniqueY && isUniqueInside;
+    }
+    static char[] list = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+    static bool IsDigit(char ch)
+    {
+        return list.Contains(ch);
     }
 }
