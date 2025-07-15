@@ -1,2 +1,3 @@
 ﻿// NeetCode.Trees.P6.Run();
-LeetCode.P98.Run();
+
+NeetCode.ArraysAndHashing.P4.Run();
