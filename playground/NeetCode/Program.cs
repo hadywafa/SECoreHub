@@ -1,1 +1,2 @@
-﻿NeetCode.Trees.P6.Run();
+﻿// NeetCode.Trees.P6.Run();
+LeetCode.P98.Run();
