@@ -24,20 +24,22 @@ public class P2
     public static int[] TwoSum(int[] numbers, int target)
     {
         int p1 = 0;
-        int p2 = 0;
-        while (p2 < numbers.Length && p1 < numbers.Length)
+        int p2 = numbers.Length - 1;
+        while (p2 > 0 && p1 < numbers.Length)
         {
-            var prev = numbers[p1];
-            var current = numbers[p2];
+            var num1 = numbers[p1];
+            var num2 = numbers[p2];
 
-            if (target - prev == current)
+            if (num1 + num2 == target)
                 break;
 
-            if (target - prev < current)
-                p1++;
+            if (num1 + num2 > target)
+                p2--;
 
-            if (target - prev > current)
-                p2++;
+            if (num1 + num2 < target)
+            {
+                p1++;
+            }
         }
         return [p1 + 1, p2 + 1];
     }
