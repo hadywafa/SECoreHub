@@ -1,3 +1,3 @@
 ﻿// NeetCode.Trees.P6.Run();
 
-NeetCode.ArraysAndHashing.P9.Run();
+NeetCode.TwoPointer.P2.Run();
