@@ -4,24 +4,33 @@ public class P4
 {
     public static void Run()
     {
-        int[] height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
-        // int[] height = [2, 3, 4, 5, 18, 17, 6];
+        // int[] height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+        int[] height = [2, 3, 4, 5, 18, 17, 6];
 
         var result = MaxArea(height);
         Console.WriteLine(result);
     }
 
+    //🤖 robot
     public static int MaxArea(int[] height)
     {
-        Array.Sort(height);
-        // Area =  (right - left) * Math.Max(nums[left], nums[right])
-        int maxArea = 0;
+        int left = 0;
         int right = height.Length - 1;
-        for (int i = height.Length - 2; i >= 0; i--)
+        int maxArea = 0;
+
+        while (left < right)
         {
-            int currentMaxArea = Math.Abs(right - i) * Math.Min(height[right], height[i]);
-            maxArea = Math.Max(maxArea, currentMaxArea);
-            right--;
+            int minHeight = Math.Min(height[left], height[right]);
+            int width = right - left;
+            int area = minHeight * width;
+
+            maxArea = Math.Max(maxArea, area);
+
+            // Move the pointer pointing to the shorter line
+            if (height[left] < height[right])
+                left++;
+            else
+                right--;
         }
 
         return maxArea;
