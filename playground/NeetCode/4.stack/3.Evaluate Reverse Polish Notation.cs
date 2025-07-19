@@ -24,7 +24,7 @@ public class P3
 
     public static int EvalRPN(string[] tokens)
     {
-        var stack = new Stack<string>();
+        var stack = new Stack<int>();
 
         for (int i = 0; i < tokens.Length; i++)
         {
@@ -33,13 +33,13 @@ public class P3
             {
                 var item1 = stack.Pop();
                 var item2 = stack.Pop();
-                var result = Calculate(int.Parse(item2), int.Parse(item1), tokens[i]);
-                stack.Push(result.ToString());
+                var result = Calculate(item2, item1, tokens[i]);
+                stack.Push(result);
             }
             else
-                stack.Push(tokens[i]);
+                stack.Push(int.Parse(tokens[i]));
         }
-        return int.Parse(stack.Pop());
+        return stack.Pop();
     }
 
     private static bool IsOperator(string item)
