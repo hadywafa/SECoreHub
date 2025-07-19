@@ -1,1 +1,1 @@
-﻿NeetCode.Stack.P2.Run();
+﻿NeetCode.Stack.P3.Run();
