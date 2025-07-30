@@ -1,7 +1,15 @@
-namespace MicrosoftInterview;
+namespace NeetCode.ArraysAndHashing;
 
-public partial class Solution
+public class P169
 {
+    public static void Run()
+    {
+        int[] nums = [2, 7, 11, 15];
+
+        var result = MajorityElement(nums);
+        Console.WriteLine(nums.HwToString());
+    }
+
     public static int MajorityElement(int[] nums)
     {
         var dictNumberCount = new Dictionary<int, int>();

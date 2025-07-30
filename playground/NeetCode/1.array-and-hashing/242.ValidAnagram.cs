@@ -1,7 +1,16 @@
-namespace MicrosoftInterview;
+namespace NeetCode.ArraysAndHashing;
 
-public partial class Solution
+public class P242
 {
+    public static void Run()
+    {
+        string s = "anagram";
+        string t = "nagaram";
+
+        var result = IsAnagram(s, t);
+        Console.WriteLine(result);
+    }
+
     public static bool IsAnagram(string s, string t)
     {
         if (s.Length != t.Length)

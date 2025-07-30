@@ -1,13 +1,18 @@
-namespace MicrosoftInterview;
+namespace NeetCode.ArraysAndHashing;
 
-public partial class Solution
+public class P1
 {
-    // foreach item in array
-    // foreach item in array
-    // if item[i] + item+1 = target
+    public static void Run()
+    {
+        int[] nums = [2, 7, 11, 15];
+        int target = 9;
+
+        var result = TwoSum_1(nums, target);
+        Console.WriteLine(nums.HwToString());
+    }
 
 
-    public static int[] TwoSum(int[] nums, int target)
+    public static int[] TwoSum_2(int[] nums, int target)
     {
         // foreach item in array
         // foreach item in array
@@ -27,7 +32,7 @@ public partial class Solution
         return [];
     }
 
-    public static int[] TwoSum(bool theBest, int[] nums, int target)
+    public static int[] TwoSum_1(int[] nums, int target)
     {
         Dictionary<int, int> pair = new Dictionary<int, int>();
         pair[nums[0]] = 0;

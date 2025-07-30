@@ -1,6 +1,6 @@
 namespace NeetCode.ArraysAndHashing;
 
-public class P8
+public class P36
 {
     public static void Run()
     {

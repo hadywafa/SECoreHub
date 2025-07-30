@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace NeetCode.ArraysAndHashing;
 
 public class P27
