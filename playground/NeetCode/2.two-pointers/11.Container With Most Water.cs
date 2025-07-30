@@ -1,6 +1,6 @@
 namespace NeetCode.TwoPointer;
 
-public class P4
+public class P11
 {
     public static void Run()
     {

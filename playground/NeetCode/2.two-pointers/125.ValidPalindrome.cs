@@ -1,9 +1,17 @@
 using System.Text.RegularExpressions;
 
-namespace MicrosoftInterview;
+namespace NeetCode.TwoPointer;
 
-public partial class Solution
+public class P125
 {
+    public static void Run()
+    {
+        string s = "A man, a plan, a canal: Panama";
+
+        var result = IsPalindrome(s);
+        Console.WriteLine(result);
+    }
+
     public static bool IsPalindrome(string s)
     {
         //lamal
