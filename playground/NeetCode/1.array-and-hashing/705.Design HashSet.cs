@@ -19,6 +19,7 @@ public class P705
 public class MyHashSet
 {
     Dictionary<int, int> arr;
+
     public MyHashSet()
     {
         arr = new Dictionary<int, int>();
@@ -26,7 +27,6 @@ public class MyHashSet
 
     public void Add(int key)
     {
-
         if (!Contains(key))
         {
             arr[key] = key;
@@ -36,7 +36,6 @@ public class MyHashSet
     public void Remove(int key)
     {
         arr.Remove(key);
-
     }
 
     public bool Contains(int key)
