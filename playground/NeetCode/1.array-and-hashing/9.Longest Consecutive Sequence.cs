@@ -14,7 +14,9 @@ public class P9
 
     public static int LongestConsecutive_S2(int[] nums)
     {
-        if (nums.Length == 0) return 0;
+        if (nums.Length == 0)
+            return 0;
+
         Array.Sort(nums);
 
         int seqCount = 1;
@@ -41,7 +43,9 @@ public class P9
 
     public int LongestConsecutive_S1(int[] nums)
     {
-        if (nums.Length == 0) return 0;
+        if (nums.Length == 0)
+            return 0;
+
         Array.Sort(nums);
 
         int pointer = 0;
