@@ -8,11 +8,11 @@ public class P125
     {
         string s = "A man, a plan, a canal: Panama";
 
-        var result = IsPalindrome(s);
+        var result = IsPalindrome_S1(s);
         Console.WriteLine(result);
     }
 
-    public static bool IsPalindrome(string s)
+    public static bool IsPalindrome_S2(string s)
     {
         //lamal
         string cleanInput = Regex.Replace(s.ToLower(), "[^a-zA-Z0-9]", "");
@@ -25,6 +25,21 @@ public class P125
                 return false;
         }
 
+        return true;
+    }
+
+    private static bool IsPalindrome_S1(string s)
+    {
+        s = Regex.Replace(s.ToLower(), "[^a-zA-Z0-9]", "");
+        int l = 0;
+        int r = s.Length - 1;
+        while (l < r)
+        {
+            if (s[l] != s[r])
+                return false;
+            l++;
+            r--;
+        }
         return true;
     }
 }

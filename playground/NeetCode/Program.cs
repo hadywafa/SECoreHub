@@ -1,1 +1,1 @@
-﻿NeetCode.ArraysAndHashing.P706.Run();
+﻿NeetCode.TwoPointer.P680.Run();
