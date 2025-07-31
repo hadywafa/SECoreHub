@@ -1,1 +1,1 @@
-﻿NeetCode.BinarySearch.P74.Run();
+﻿NeetCode.BinarySearch.P35.Run();
