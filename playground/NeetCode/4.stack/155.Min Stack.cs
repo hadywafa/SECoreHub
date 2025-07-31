@@ -1,6 +1,6 @@
 namespace NeetCode.Stack;
 
-public class P2
+public class P155
 {
     public static void Run()
     {

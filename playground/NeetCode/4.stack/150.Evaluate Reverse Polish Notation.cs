@@ -1,6 +1,6 @@
 namespace NeetCode.Stack;
 
-public class P3
+public class P150
 {
     static Dictionary<string, Func<int, int, int>> operators = new Dictionary<
         string,

@@ -1,1 +1,1 @@
-﻿NeetCode.SlidingWindow.P219.Run();
+﻿NeetCode.Stack.P232.Run();

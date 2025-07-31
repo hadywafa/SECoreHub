@@ -1,7 +1,7 @@
 namespace NeetCode.Stack;
 
 //🔞 it can be solved using Backtracking or Dynamic Programming (Not Stack)
-public class P4
+public class P22
 {
     public static void Run()
     {
