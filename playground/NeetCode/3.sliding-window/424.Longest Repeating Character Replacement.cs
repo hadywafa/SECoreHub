@@ -1,6 +1,6 @@
 namespace NeetCode.SlidingWindow;
 
-public class P3
+public class P424
 {
     public static void Run()
     {
