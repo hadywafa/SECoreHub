@@ -2,7 +2,7 @@ using System.Data;
 
 namespace NeetCode.BinarySearch;
 
-public class P1
+public class P704
 {
     public static void Run()
     {
