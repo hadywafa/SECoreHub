@@ -8,12 +8,43 @@ public class P88
         int m = 3;
         int[] nums2 = [2, 5, 6];
         int n = 3;
-
-        var result = Merge(nums1, m, nums2, n);
-        Console.WriteLine(result);
+        //------
+        // int[] nums1 = [1];
+        // int m = 1;
+        // int[] nums2 = [];
+        // int n = 0;
+        //------
+        // int[] nums1 = [0];
+        // int m = 0;
+        // int[] nums2 = [1];
+        // int n = 1;
+        //------
+        // int[] nums1 = [4,5,6,0,0,0];
+        // int m = 3;
+        // int[] nums2 = [1,2,3];
+        // int n = 3;
+        //------
+        Merge_1(nums1, m, nums2, n);
+        Console.WriteLine(nums1.HwToString());
     }
 
-    public static int[] Merge(int[] nums1, int m, int[] nums2, int n)
+ 
+
+    public static void Merge_1(int[] nums1, int m, int[] nums2, int n)
+    {
+        int r = 0;
+        for (int l = m; l < nums1.Length; l++)
+        {
+            if (r < n)
+            {   
+                nums1[l] = nums2[r];
+                r++;
+            }
+        }
+        Array.Sort(nums1);
+    }
+
+    public static int[] Merge_2(int[] nums1, int m, int[] nums2, int n)
     {
         for (int i = 0; i < n; i++)
         {

@@ -1,1 +1,1 @@
-﻿NeetCode.TwoPointer.P680.Run();
+﻿NeetCode.TwoPointer.P26.Run();
