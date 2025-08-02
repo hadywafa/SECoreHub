@@ -11,7 +11,6 @@ public class P1
         Console.WriteLine(nums.HwToString());
     }
 
-
     public static int[] TwoSum_2(int[] nums, int target)
     {
         // foreach item in array
