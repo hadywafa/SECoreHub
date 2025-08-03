@@ -1,1 +1,1 @@
-﻿NeetCode.LinkedList.P143.Run();
+﻿NeetCode.LinkedList.P19.Run();
