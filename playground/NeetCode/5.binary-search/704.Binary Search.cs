@@ -8,12 +8,12 @@ public class P704
     {
         int[] nums = [-1, 0, 3, 5, 9, 12];
         int target = 9;
-        var result = Search_Solution1(nums, target);
+        var result = Search_Top(nums, target);
         System.Console.WriteLine(result);
     }
 
     // ✅ Solution 😎⚡
-    public static int Search_Solution1(int[] nums, int target)
+    public static int Search_1(int[] nums, int target)
     {
         int length = nums.Length;
         int pointer = (length / 2);
@@ -35,6 +35,45 @@ public class P704
             }
             else
                 return -1;
+        }
+        return -1;
+    }
+
+    // the Best
+    public static int Search_Top(int[] nums, int target)
+    {
+        int l = 0;
+        int r = nums.Length - 1;
+
+        if (l == r)
+        {
+            if (nums[l] == target)
+                return l;
+            return -1;
+        }
+
+        while (l < r)
+        {
+            if (l == r - 1)
+            {
+                if (nums[l] == target)
+                    return l;
+                else if (nums[r] == target)
+                    return r;
+                else
+                    return -1;
+            }
+            int mid = l + (r - l) / 2;
+            if (nums[mid] == target)
+                return mid;
+            else if (nums[mid] > target)
+            {
+                r = mid;
+            }
+            else if (nums[mid] < target)
+            {
+                l = mid;
+            }
         }
         return -1;
     }

@@ -87,5 +87,4 @@ public class P35
         // At the end of loop, left is the correct insert position
         return left;
     }
-    
 }
