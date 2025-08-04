@@ -1,6 +1,6 @@
 namespace NeetCode.LinkedList;
 
-public static class P3
+public static class P141
 {
     public static void Run()
     {

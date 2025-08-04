@@ -1,6 +1,6 @@
 namespace NeetCode.LinkedList;
 
-public static class P2
+public static class P21
 {
     public static void Run()
     {
@@ -15,7 +15,7 @@ public static class P2
         var result = MergeTwoLists_S2(list1, list2);
         Console.WriteLine(result);
     }
-    
+
     //⁉️ 🤖
     public static ListNode MergeTwoLists_S2(ListNode? list1, ListNode? list2)
     {
@@ -44,11 +44,8 @@ public static class P2
         return dummy.next!;
     }
 
-
-
     public static ListNode MergeTwoLists_S1(ListNode list1, ListNode list2)
     {
-
         var tempList1 = new List<int>();
         var tempList2 = new List<int>();
 
@@ -68,5 +65,4 @@ public static class P2
         var result = ListNode.CreateLinkedList(mergedArray.ToArray());
         return result;
     }
-
 }

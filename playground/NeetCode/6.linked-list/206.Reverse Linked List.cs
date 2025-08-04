@@ -1,6 +1,6 @@
 namespace NeetCode.LinkedList;
 
-public static class P1
+public static class P206
 {
     public static void Run()
     {
@@ -48,6 +48,4 @@ public static class P1
         var result = ListNode.CreateLinkedList(values.ToArray());
         return result;
     }
-
-
 }
