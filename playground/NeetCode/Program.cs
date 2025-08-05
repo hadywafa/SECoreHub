@@ -1,1 +1,1 @@
-﻿NeetCode.LinkedList.P287.Run();
+﻿NeetCode.ArraysAndHashing.P242.Run();

@@ -7,8 +7,27 @@ public class P1
         int[] nums = [2, 7, 11, 15];
         int target = 9;
 
-        var result = TwoSum_1(nums, target);
+        var result = TwoSum(nums, target);
         Console.WriteLine(nums.HwToString());
+    }
+    public static int[] TwoSum(int[] nums, int target) {
+        //contains diff with its index
+        var map = new Dictionary<int, int>();
+
+        for(int i = 0; i < nums.Length; i++)
+        {
+            if(map.ContainsKey(nums[i]))
+            {
+                return [i, map[nums[i]]];
+            }
+            else
+            {
+                map[target - nums[i]] = i;
+            }
+
+        }
+
+        return [];
     }
 
     public static int[] TwoSum_2(int[] nums, int target)
