@@ -1,1 +1,1 @@
-﻿NeetCode.ArraysAndHashing.P242.Run();
+﻿NeetCode.ArraysAndHashing.P347.Run();
