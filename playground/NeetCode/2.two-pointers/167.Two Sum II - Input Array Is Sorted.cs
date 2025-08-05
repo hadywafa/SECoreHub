@@ -17,11 +17,33 @@ public class P167
         int[] numbers = [5, 25, 75];
         int target = 100;
 
-        var result = TwoSum(numbers, target);
+        var result = TwoSum_1(numbers, target);
         Console.WriteLine(result.HwToString());
     }
 
-    public static int[] TwoSum(int[] numbers, int target)
+    public static int[] TwoSum_1(int[] numbers, int target) {
+        
+        int l = 0;
+        int r = numbers.Length - 1;
+        while(l < r)
+        {
+            int sum = numbers[r] + numbers[l];
+
+            if(sum == target)
+                return [l + 1, r + 1];
+
+            if(sum > target)
+            {
+                r--;
+                // l = 0;
+            }
+            else
+                l++;
+        }
+        return [l + 1, r + 1];
+    }
+
+    public static int[] TwoSum_2(int[] numbers, int target)
     {
         int p1 = 0;
         int p2 = numbers.Length - 1;

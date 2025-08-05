@@ -15,7 +15,7 @@ public class P125
     public static bool IsPalindrome_S2(string s)
     {
         //lamal
-        string cleanInput = Regex.Replace(s.ToLower(), "[^a-zA-Z0-9]", "");
+        string cleanInput = Regex.Replace(s.ToLower(), "[^a-z0-9]", "");
 
         var index = cleanInput.Length / 2;
 
