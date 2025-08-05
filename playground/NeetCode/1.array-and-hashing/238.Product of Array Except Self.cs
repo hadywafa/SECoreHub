@@ -5,62 +5,48 @@ public class P238
     public static void Run()
     {
         // int[] nums = [1, 2, 3, 4];
-        int[] nums = [-1, 1, 0, -3, 3];
+        // int[] nums = [-1, 1, 0, -3, 3];
+        int[] nums = [0, 0];
 
-        var result = ProductExceptSelf(nums);
+        var result = ProductExceptSelf_1(nums);
 
         System.Console.WriteLine(result.HwToString());
     }
 
-    public static int[] ProductExceptSelf(int[] nums)
+    public static int[] ProductExceptSelf_1(int[] nums)
     {
-        var AllMultiplication = 1;
-        var zeroIndex = new HashSet<int>();
-        var results = new int[nums.Length];
-
+        int[] result = new int[nums.Length];
+        int allProduct = 1;
+        int zeroItemsCount = 0;
         for (int i = 0; i < nums.Length; i++)
         {
-            var item = nums[i];
-            AllMultiplication *= (item != 0) ? item : 1;
-            if (item == 0)
-                zeroIndex.Add(i);
-
-        }
-
-        for (int i = 0; i < nums.Length; i++)
-        {
-            var item = nums[i];
-            if (item == 0)
-            {
-                zeroIndex.Remove(i);
-                if (zeroIndex.Count >= 1)
-                {
-                    results[i] = 0;
-                }
-                else
-                {
-                    results[i] = AllMultiplication;
-                }
-                zeroIndex.Add(i);
-            }
+            if (nums[i] == 0)
+                zeroItemsCount++;
             else
+                allProduct *= nums[i];
+        }
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (zeroItemsCount > 1)
             {
-                if (zeroIndex.Count >= 1)
-                {
-                    results[i] = 0;
-                }
+                result[i] = 0;
+            }
+            else if (zeroItemsCount == 1)
+            {
+                if (nums[i] == 0)
+                    result[i] = allProduct;
                 else
-                {
-                    results[i] = AllMultiplication / item;
-
-                }
+                    result[i] = 0;
+            }
+            else if (zeroItemsCount == 0)
+            {
+                result[i] = allProduct / nums[i];
             }
         }
-
-        return results;
+        return result;
     }
 
-    public static int[] ProductExceptSelf_Old(int[] nums)
+    public static int[] ProductExceptSelf_2(int[] nums)
     {
         var result = new List<int>();
         for (int i = 0; i < nums.Length; i++)
