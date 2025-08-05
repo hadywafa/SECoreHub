@@ -15,7 +15,7 @@ public class P15
         Console.WriteLine(result.Select(x => x.ToArray()).ToArray().HwToString());
     }
 
-    // 🔞😭
+    // 🔞😭 for + two pointer + HashSet
     public static IList<IList<int>> ThreeSum(int[] nums) {
         Array.Sort(nums);
         var set = new HashSet<string>();
