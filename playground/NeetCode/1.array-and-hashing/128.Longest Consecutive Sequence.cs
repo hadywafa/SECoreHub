@@ -1,5 +1,8 @@
 namespace NeetCode.ArraysAndHashing;
 
+/// <summary>
+/// 
+/// </summary>
 public class P128
 {
     public static void Run()
@@ -8,19 +11,42 @@ public class P128
         // int[] nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1];
         // int[] nums = [];
 
-        var result = LongestConsecutive_S2(nums);
+        var result = LongestConsecutive_1(nums);
         System.Console.WriteLine(result);
     }
 
-    public static int LongestConsecutive_S2(int[] nums)
+    public static int LongestConsecutive_1(int[] nums)
     {
-        if (nums.Length == 0)
-            return 0;
+        if (nums.Length == 0) return 0;
 
+        var set = new HashSet<int>(nums);
+        int maxLength = 0;
+
+        foreach (int num in set) {
+            // Only start at the beginning of a sequence
+            if (!set.Contains(num - 1)) {
+                int current = num;
+                int length = 1;
+
+                while (set.Contains(current + 1)) {
+                    current++;
+                    length++;
+                }
+
+                maxLength = Math.Max(maxLength, length);
+            }
+        }
+
+        return maxLength;
+    }
+    
+    public static int LongestConsecutive_2(int[] nums)
+    {
+        if (nums.Length == 0) return 0;
         Array.Sort(nums);
 
-        int seqCount = 1;
-        int max = 0;
+        int count = 1;
+        int maxCount = 0;
         for (int i = 1; i < nums.Length; i++)
         {
             var current = nums[i];
@@ -29,19 +55,19 @@ public class P128
                 continue;
 
             if (current == (prev + 1))
-                seqCount++;
+                count++;
             else
             {
-                max = Math.Max(max, seqCount);
-                seqCount = 1;
+                maxCount = Math.Max(maxCount, count);
+                count = 1;
             }
         }
-        max = Math.Max(max, seqCount);
+        maxCount = Math.Max(maxCount, count);
 
-        return max;
+        return maxCount;
     }
 
-    public int LongestConsecutive_S1(int[] nums)
+    public int LongestConsecutive_3(int[] nums)
     {
         if (nums.Length == 0)
             return 0;
