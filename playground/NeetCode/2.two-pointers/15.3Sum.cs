@@ -16,47 +16,47 @@ public class P15
     }
 
     // 🔞😭
-    public static IList<IList<int>> ThreeSum(int[] nums)
-    {
+    public static IList<IList<int>> ThreeSum(int[] nums) {
         Array.Sort(nums);
-        var res = new List<IList<int>>();
-        var seen = new HashSet<string>();
-
-        for (int i = 0; i < nums.Length - 2; i++)
+        var set = new HashSet<string>();
+        var result = new List<IList<int>>();
+        for(int i = 0; i < nums.Length; i++)
         {
-            int currentValue = nums[i];
+            // skip duplicates
+            if (i > 0 && nums[i] == nums[i - 1])
+                continue; 
+
+            //two sum
             int l = i + 1;
             int r = nums.Length - 1;
-            while (l < r)
+            while(l < r)
             {
-                int lValue = nums[l];
-                int rValue = nums[r];
-                int sum = currentValue + lValue + rValue;
-
-                if (sum == 0)
+                int sum = nums[i]  + nums[l] + nums[r];
+                if(sum == 0)
                 {
-                    string tripletKey = $"{currentValue},{lValue},{rValue}";
-                    if (!seen.Contains(tripletKey))
+                    // if pattern repeated, skip it please 
+                    string tripletKey = $"{nums[i]},{nums[l]},{nums[r]}";
+                    if (!set.Contains(tripletKey))
                     {
-                        res.Add(new List<int> { currentValue, lValue, rValue });
-                        seen.Add(tripletKey);
+                        var list = new List<int>
+                        {
+                            nums[i], nums[r] , nums[l]
+                        };
+                        result.Add(list);
+                        set.Add(tripletKey);
                     }
 
                     l++;
                     r--;
                 }
-                else if (sum < 0)
-                {
-                    l++;
-                }
-                else
-                {
+                
+                else if(sum > 0)
                     r--;
-                }
+                else if(sum < 0)
+                    l++;
             }
         }
-
-        return res;
+        return result;
     }
 
     // ❌ 😎 very proud of myself
