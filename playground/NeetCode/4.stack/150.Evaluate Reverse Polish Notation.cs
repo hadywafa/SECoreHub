@@ -2,6 +2,50 @@ namespace NeetCode.Stack;
 
 public class P150
 {
+
+    public static void Run()
+    {
+        // string[] tokens = ["2", "1", "+", "3", "*"];
+        // string[] tokens = ["4", "13", "5", "/", "+"];
+        string[] tokens = ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"];
+        var result = EvalRPN_1(tokens);
+        System.Console.WriteLine(result);
+    }
+
+    public static int EvalRPN_1(string[] tokens)
+    {
+        var set = new HashSet<string>()
+                    {
+                        "+", "-", "*", "/"
+                    };
+        var stack = new Stack<int>();
+
+        for (int i = 0; i < tokens.Length; i++)
+        {
+            if (set.Contains(tokens[i]))
+            {
+                int item1 = stack.Pop();
+                int item2 = stack.Pop();
+                int result = 0;
+                if (tokens[i] == "+")
+                    result = item2 + item1;
+                else if (tokens[i] == "-")
+                    result = item2 - item1;
+                else if (tokens[i] == "*")
+                    result = item2 * item1;
+                else if (tokens[i] == "/")
+                    result = item2 / item1;
+
+                stack.Push(result);
+            }
+            else
+            {
+                stack.Push(int.Parse(tokens[i]));
+            }
+        }
+        return stack.Peek();
+    }
+
     static Dictionary<string, Func<int, int, int>> operators = new Dictionary<
         string,
         Func<int, int, int>
@@ -13,16 +57,7 @@ public class P150
         { "/", (x, y) => y != 0 ? x / y : throw new DivideByZeroException() },
     };
 
-    public static void Run()
-    {
-        // string[] tokens = ["2", "1", "+", "3", "*"];
-        // string[] tokens = ["4", "13", "5", "/", "+"];
-        string[] tokens = ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"];
-        var result = EvalRPN(tokens);
-        System.Console.WriteLine(result);
-    }
-
-    public static int EvalRPN(string[] tokens)
+    public static int EvalRPN_2(string[] tokens)
     {
         var stack = new Stack<int>();
 
