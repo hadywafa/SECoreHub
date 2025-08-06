@@ -4,16 +4,18 @@ public class P3
 {
     public static void Run()
     {
-        string s = "abcbb";
+        // string s = "abcbb";
         // string s = "pwwkew";
         // string s = " ";
-        // string s = "dvdf";
-        var result = LengthOfLongestSubstring(s);
+        string s = "dvdf";
+        var result = LengthOfLongestSubstring_1(s);
         System.Console.WriteLine(result);
     }
 
-    public static int LengthOfLongestSubstring(string s)
+    public static int LengthOfLongestSubstring_1(string s)
     {
+        // Input: s = "abcabcbb"
+        // abc => bca => cab => abc => bc => cb => b
         // error when s = "dvdf"
         HashSet<char> charSet = new HashSet<char>();
         int l = 0;
@@ -32,7 +34,39 @@ public class P3
         return res;
     }
 
-    public static int LengthOfLongestSubstring_OLD(string s)
+    public static int LengthOfLongestSubstring_2(string s)
+    {
+        if (s == string.Empty)
+            return 0;
+
+        int maxSubstring = 0;
+        var set = new HashSet<char>();
+        set.Add(s[0]);
+        int counter = 1;
+        int l = 0;
+        int r = 1;
+        while (r < s.Length)
+        {
+            if (!set.Add(s[r]))
+            {
+                maxSubstring = Math.Max(maxSubstring, counter);
+                counter = 1;
+                l++;
+                r = l + 1;
+                set.Clear();
+                set.Add(s[l]);
+            }
+            else
+            {
+                counter++;
+                r++;
+            }
+        }
+        maxSubstring = Math.Max(maxSubstring, counter);
+        return maxSubstring;
+    }
+
+    public static int LengthOfLongestSubstring_3(string s)
     {
         // error when s = "dvdf"
         var uniquePattern = new Dictionary<string, int>();
