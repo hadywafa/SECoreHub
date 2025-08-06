@@ -9,8 +9,42 @@ public class P424
         // string s = "ABBB";
         int k = 1;
 
-        var result = CharacterReplacement_AI(s, k);
+        var result = CharacterReplacement_Best(s, k);
         System.Console.WriteLine(result);
+    }
+
+    public static int CharacterReplacement_Best(string s, int k)
+    {
+        // "AABABBA"
+        int maxLength = 0;
+
+        //dict for tracking maxFreq char
+        var charDict = new Dictionary<char, int>();
+        int maxFreq = 0;
+
+        int l = 0;
+        for (int r = 0; r < s.Length; r++)
+        {
+            // calc max freq char
+            if (charDict.ContainsKey(s[r]))
+            {
+                charDict[s[r]]++;
+            }
+            else
+                charDict[s[r]] = 1;
+            maxFreq = Math.Max(maxFreq, charDict[s[r]]);
+
+            //shrink window if {windowLength - maxFreq > k}
+            while ((r - l + 1) - maxFreq > k)
+            {
+                charDict[s[l]]--;
+                l++;
+            }
+
+            // Update the result with the current window size
+            maxLength = Math.Max(maxLength, r - l + 1);
+        }
+        return maxLength;
     }
 
     //🔞
