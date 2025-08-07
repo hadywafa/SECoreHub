@@ -17,7 +17,7 @@ public static class P143
         System.Console.WriteLine();
     }
 
-    public static void ReorderList(ListNode head)
+    public static void ReorderList(ListNode? head)
     {
         // [1, 2, 3, 4]
         // [1, 4, 2, 3]

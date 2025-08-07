@@ -19,7 +19,7 @@ public static class P141
         Console.WriteLine(result);
     }
 
-    public static bool HasCycle_S1(ListNode head)
+    public static bool HasCycle_S1(ListNode? head)
     {
         var bag = new HashSet<ListNode>();
         int pos = -1;

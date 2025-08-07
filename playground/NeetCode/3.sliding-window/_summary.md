@@ -1,202 +1,184 @@
-# 🧠 Sliding Window Pattern — Full Guide
+# 🔍 Sliding Window Pattern
 
-## ✅ What is Sliding Window?
+## 🧊 What Is Sliding Window?
 
-> A technique to **reduce the time complexity** of problems involving **contiguous sequences (subarrays, substrings)** by using a **"window" that slides across the input**.
+> A **sliding window** is a technique for problems that require examining **contiguous subarrays or substrings** — usually to find a sum, max/min, or count — without using nested loops.
 
-Instead of checking all possible subarrays (which is O(n²)), you maintain a fixed-size or variable-size "window" and move it efficiently across the input.
-
----
-
-## 🧩 When to Use Sliding Window?
-
-Look for these clues:
-
-| Clue in Problem                                                   | Use Sliding Window            |
-| ----------------------------------------------------------------- | ----------------------------- |
-| Substring or Subarray                                             | ✅ Yes                        |
-| "Longest", "Shortest", "Maximum", "Minimum" in substring/subarray | ✅ Yes                        |
-| Fixed or dynamic window size                                      | ✅ Yes                        |
-| Only positive numbers / characters                                | ✅ Easier with Sliding Window |
-| You need to check or maintain a condition in a range              | ✅ Yes                        |
+Instead of recalculating from scratch, you **slide a window** and **reuse** part of the previous calculation.
 
 ---
 
-## 🚪 Sliding Window Patterns (with LeetCode examples)
+## 🧠 When to Use It?
 
-## 🪟 1. Fixed-Size Sliding Window
+Use Sliding Window when:
 
-🧩 Use when the window size is constant (e.g., "find max sum of subarray of size K").
+- Problem involves **contiguous elements** (subarrays/substrings).
+- You're asked to find **max/min/sum/length/count** of a subarray.
+- Naive solution is **O(n²)** — can you do better?
+- You can solve the problem by **adding/removing** from a running window.
 
-### Pattern
+---
+
+## 🧰 Types of Sliding Window
+
+### 1. 🔒 **Fixed-size Window**
+
+→ Use when window size `k` is given.
+
+#### ✅ C# Example: Max sum of subarray of size `k`
 
 ```csharp
-int sum = 0, maxSum = 0;
-for (int i = 0; i < nums.Length; i++) {
-    sum += nums[i];
+public int MaxSum(int[] nums, int k)
+{
+    int maxSum = 0, windowSum = 0;
 
-    if (i >= k - 1) {
-        maxSum = Math.Max(maxSum, sum);
-        sum -= nums[i - k + 1];  // shrink window
+    for (int i = 0; i < nums.Length; i++)
+    {
+        windowSum += nums[i];
+
+        if (i >= k - 1)
+        {
+            maxSum = Math.Max(maxSum, windowSum);
+            windowSum -= nums[i - k + 1]; // Slide the window
+        }
+    }
+
+    return maxSum;
+}
+```
+
+🧠 **Trick**: Slide window by removing `nums[i - k + 1]` and adding `nums[i]`.
+
+---
+
+### 2. 📏 **Variable-size Window (Dynamic)**
+
+→ When you're **not given** a fixed size — instead, a condition decides window growth/shrink.
+
+#### ✅ C# Example: Longest substring with at most 2 distinct characters
+
+```csharp
+public int LengthOfLongestSubstringTwoDistinct(string s)
+{
+    var map = new Dictionary<char, int>();
+    int left = 0, maxLen = 0;
+
+    for (int right = 0; right < s.Length; right++)
+    {
+        char c = s[right];
+        if (!map.ContainsKey(c))
+            map[c] = 0;
+        map[c]++;
+
+        while (map.Count > 2)
+        {
+            char leftChar = s[left];
+            map[leftChar]--;
+            if (map[leftChar] == 0)
+                map.Remove(leftChar);
+            left++;
+        }
+
+        maxLen = Math.Max(maxLen, right - left + 1);
+    }
+
+    return maxLen;
+}
+```
+
+🧠 **Trick**:
+
+- Expand `right`
+- If condition breaks (too many distinct chars), shrink `left` until valid
+
+---
+
+## 🧠 How to Identify Sliding Window Problems
+
+Ask yourself:
+
+| Clue                             | Meaning                                       |
+| -------------------------------- | --------------------------------------------- |
+| ❓ "Contiguous"                  | Subarray/substring — window needed            |
+| 🎯 “Max/min/avg/count of window” | Usually fixed or dynamic window               |
+| 🔁 Naive solution = O(n²)?       | Try converting to O(n) using a sliding window |
+| ⏱ Time-efficient required?       | Sliding window = optimal                      |
+
+---
+
+## 🧠 C# Sliding Window Template
+
+### 🔒 Fixed-size:
+
+```csharp
+int left = 0;
+for (int right = 0; right < arr.Length; right++)
+{
+    // Expand window
+    ...
+
+    if (right - left + 1 == k)
+    {
+        // Update result
+        ...
+        // Shrink window
+        ...
+        left++;
     }
 }
 ```
 
-### 🔗 Problems:
-
-- [Max Sum Subarray of Size K](https://leetcode.com/problems/maximum-average-subarray-i/)
-- [Maximum Sum of Subarray of Size K - Sliding Window](https://leetcode.com/problems/maximum-average-subarray-i/)
-
----
-
-## 🪟 2. Variable-Size Sliding Window
-
-🧩 Use when the window size grows or shrinks based on a condition (e.g., "longest subarray with sum ≤ K")
-
-### Pattern
+### 📏 Dynamic-size:
 
 ```csharp
-int l = 0;
-for (int r = 0; r < nums.Length; r++) {
-    // expand window
-    while (condition not met) {
-        // shrink from left
-        l++;
+int left = 0;
+for (int right = 0; right < arr.Length; right++)
+{
+    // Expand window (add arr[right])
+    ...
+
+    while (/* window invalid */)
+    {
+        // Shrink window (remove arr[left])
+        ...
+        left++;
     }
 
-    // check/update result here
+    // Update result if needed
+    ...
 }
 ```
 
-### 🔗 Problems:
+---
 
-- [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
-- [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
+## 🧪 C# Practice Problems
+
+| Problem                                   | Type          | LeetCode |
+| ----------------------------------------- | ------------- | -------- |
+| Max Sum of Subarray of Size K             | Fixed         | 643      |
+| Longest Substring Without Repeating Chars | Dynamic       | 3        |
+| Longest Substring with At Most K Distinct | Dynamic       | 340      |
+| Minimum Window Substring                  | Shrinking     | 76       |
+| Permutation in String                     | Fixed/Dynamic | 567      |
 
 ---
 
-## 🪟 3. Sliding Window with HashMap/Counter
+## 💥 Quick Mnemonic: **WiNdOW**
 
-🧩 Use when you need to **track frequencies** inside the window.
-
-### Pattern
-
-```csharp
-var map = new Dictionary<char, int>();
-int l = 0;
-
-for (int r = 0; r < s.Length; r++) {
-    // expand window
-    map[s[r]]++;
-
-    while (invalid window condition) {
-        map[s[l]]--;
-        l++;
-    }
-
-    if (valid window) {
-        // update result
-    }
-}
-```
-
-### 🔗 Problems:
-
-- [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
-- [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
+| Letter | What to Remember                    |
+| ------ | ----------------------------------- |
+| **W**  | Window — subarrays/substrings       |
+| **i**  | Indices `left` and `right`          |
+| **N**  | No nested loops                     |
+| **d**  | Dynamic window when condition-based |
+| **O**  | Reduce to O(n)                      |
+| **W**  | Watch when to slide!                |
 
 ---
 
-## 🪟 4. Sliding Window with Two Pointers (When Sorting Not Allowed)
+## 🧠 Final Advice
 
-🧩 Good for problems like 2Sum in a sorted array, or when the range must be found without sorting.
-
-### Pattern
-
-```csharp
-int l = 0, r = 0;
-while (r < nums.Length) {
-    // expand
-    if (valid window) {
-        // update result
-        r++;
-    } else {
-        // shrink
-        l++;
-    }
-}
-```
-
-### 🔗 Problems:
-
-- [Longest Substring with At Most K Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
-- [Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)
-
----
-
-## 🪟 5. Permutation/Anagram Checking (Your Case)
-
-🧩 Use when checking whether a **window contains the same characters** as a target.
-
-### Pattern
-
-```csharp
-var countS1 = new int[26];
-// fill s1 count
-
-for (int i = 0; i < s2.Length; i++) {
-    // add to window
-    // remove if window size > s1
-
-    // if counts match -> valid
-}
-```
-
-### 🔗 Problems:
-
-- [Check Inclusion](https://leetcode.com/problems/permutation-in-string/)
-- [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
-
----
-
-## 🪟 6. Sliding Window with Deque (For Maximum/Minimum in Window)
-
-🧩 Used when you want max/min in current window (monotonic queue).
-
-### Pattern
-
-```csharp
-var deque = new LinkedList<int>();
-
-for (int i = 0; i < nums.Length; i++) {
-    // remove elements out of range
-    // remove smaller elements
-    // add current index
-
-    // get max from front of deque
-}
-```
-
-### 🔗 Problems:
-
-- [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
-- [Shortest Subarray with Sum at Least K](https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/)
-
----
-
-## 🧠 Sliding Window Summary Table
-
-| Pattern Type            | When to Use                       | Key Structure   |
-| ----------------------- | --------------------------------- | --------------- |
-| Fixed-size window       | Exact-size range (e.g., length K) | Simple loop     |
-| Variable-size window    | Grow/shrink based on condition    | While loop + if |
-| Frequency check         | Permutations / anagrams / chars   | Array/Map       |
-| Max/Min in window       | Find max/min in window            | Deque           |
-| Longest/Shortest subX   | Optimize size under condition     | While loop      |
-| Count substrings/window | Count all valid windows           | Counter logic   |
-
----
-
-## 🧠 Pro Tip
-
-💡 **If you’re looping with `for r = 0 to n` and adjusting `l` inside — it’s a sliding window.**
+- **Always ask**: Can I solve this by reusing the last result + subtracting what left the window?
+- **Start with two pointers**: `left` and `right`.
+- **Track what’s inside**: sum, count, chars, frequency, etc.
+- **Shrink when needed**: especially for dynamic windows.

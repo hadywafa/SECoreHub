@@ -4,15 +4,15 @@ namespace NeetCode.LinkedList;
 public class ListNode
 {
     public int val;
-    public ListNode next;
+    public ListNode? next;
 
-    public ListNode(int val = 0, ListNode next = null)
+    public ListNode(int val = 0, ListNode? next = null)
     {
         this.val = val;
         this.next = next;
     }
 
-    public static ListNode CreateLinkedList(int[] values)
+    public static ListNode? CreateLinkedList(int[] values)
     {
         ListNode? head = null;
         ListNode? current = null;

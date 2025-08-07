@@ -1,1 +1,1 @@
-﻿NeetCode.SlidingWindow.P567.Run();
+﻿NeetCode.BinarySearch.P704.Run();

@@ -7,13 +7,34 @@ public class P704
     public static void Run()
     {
         int[] nums = [-1, 0, 3, 5, 9, 12];
-        int target = 9;
-        var result = Search_Top(nums, target);
+        // int target = 9;
+        int target = 2;
+        var result = BinarySearch(nums, target);
         System.Console.WriteLine(result);
     }
 
+    public static int BinarySearch(int[] nums, int target)
+    {
+        int left = 0;
+        int right = nums.Length - 1;
+
+        while (left <= right)
+        {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] == target)
+                return mid;
+            else if (nums[mid] < target)
+                left = mid + 1;
+            else
+                right = mid - 1;
+        }
+
+        return -1; // Not found
+    }
+
     // ✅ Solution 😎⚡
-    public static int Search_1(int[] nums, int target)
+    public static int Search_2(int[] nums, int target)
     {
         int length = nums.Length;
         int pointer = (length / 2);
@@ -40,7 +61,7 @@ public class P704
     }
 
     // the Best
-    public static int Search_Top(int[] nums, int target)
+    public static int Search_3(int[] nums, int target)
     {
         int l = 0;
         int r = nums.Length - 1;

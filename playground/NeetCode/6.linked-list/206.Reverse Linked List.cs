@@ -13,7 +13,7 @@ public static class P206
     }
 
     // ⁉️🤖
-    public static ListNode ReverseList_Solution2(ListNode? head)
+    public static ListNode? ReverseList_Solution2(ListNode? head)
     {
         ListNode? prev = null;
         ListNode? current = head;
@@ -30,7 +30,7 @@ public static class P206
     }
 
     // ✅😎
-    public static ListNode ReverseList_Solution1(ListNode? head)
+    public static ListNode? ReverseList_Solution1(ListNode? head)
     {
         // var reversedList = new ListNode(head.val);
 

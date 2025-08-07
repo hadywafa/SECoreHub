@@ -55,7 +55,7 @@ public class LRUCache
         {
             if (cache.Count == capacity)
             {
-                var lru = order.First.Value;
+                var lru = order.First!.Value;
                 cache.Remove(lru.key);
                 order.RemoveFirst();
             }
