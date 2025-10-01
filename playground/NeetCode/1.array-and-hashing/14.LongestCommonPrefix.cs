@@ -15,7 +15,7 @@ public class P14
         return Sol_2(strs);
     }
 
-    public static string Sol_2(string[] strs)
+    public static string Sol_1(string[] strs)
     {
         var target = strs.Select(x => new { item = x, length = x.Length })
             .OrderByDescending(x => x.length)
@@ -37,7 +37,18 @@ public class P14
         return prefix;
     }
 
-    public static string Sol_1(string[] strs)
+    public static string Sol_2(string[] strs) {
+        var prefix = strs[0];
+
+        for(int i = 1; i < strs.Length; i++) {
+            while(!strs[i].StartsWith(prefix) && prefix.Length != 0)
+                prefix = prefix.Substring(0, prefix.Length - 1);
+        }
+
+        return prefix;
+    }
+
+    public static string Sol_3(string[] strs)
     {
         var firstItem = strs[0];
         var lastIndex = firstItem.Length;

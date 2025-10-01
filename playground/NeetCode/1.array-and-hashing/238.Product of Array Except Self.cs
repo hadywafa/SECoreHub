@@ -15,6 +15,46 @@ public class P238
 
     public static int[] ProductExceptSelf_1(int[] nums)
     {
+        int productWithoutZeros = 1;
+        var zeroIndices = new HashSet<int>();
+        var result = new int[nums.Length];
+
+        // First pass: calculate product of all non-zero elements and track zero indices
+        for (int i = 0; i < nums.Length; i++)
+        {
+            int num = nums[i];
+            if (num == 0)
+            {
+                zeroIndices.Add(i);
+            }
+            else
+            {
+                productWithoutZeros *= num;
+            }
+        }
+
+        // Second pass: build result array based on zero count
+        for (int i = 0; i < nums.Length; i++)
+        {
+            int num = nums[i];
+
+            if (num == 0)
+            {
+                // If there's more than one zero, all results are zero
+                result[i] = (zeroIndices.Count > 1) ? 0 : productWithoutZeros;
+            }
+            else
+            {
+                // If there's at least one zero, all non-zero positions become zero
+                result[i] = (zeroIndices.Count >= 1) ? 0 : productWithoutZeros / num;
+            }
+        }
+
+        return result;
+    }
+
+    public static int[] ProductExceptSelf_2(int[] nums)
+    {
         int[] result = new int[nums.Length];
         int allProduct = 1;
         int zeroItemsCount = 0;
@@ -46,7 +86,7 @@ public class P238
         return result;
     }
 
-    public static int[] ProductExceptSelf_2(int[] nums)
+    public static int[] ProductExceptSelf_3(int[] nums)
     {
         var result = new List<int>();
         for (int i = 0; i < nums.Length; i++)
