@@ -12,6 +12,21 @@ public class P125
         Console.WriteLine(result);
     }
 
+    private static bool IsPalindrome_S1(string s)
+    {
+        s = Regex.Replace(s.ToLower(), "[^a-zA-Z0-9]", "");
+        int l = 0;
+        int r = s.Length - 1;
+        while (l < r)
+        {
+            if (s[l] != s[r])
+                return false;
+            l++;
+            r--;
+        }
+        return true;
+    }
+
     public static bool IsPalindrome_S2(string s)
     {
         //lamal
@@ -25,21 +40,6 @@ public class P125
                 return false;
         }
 
-        return true;
-    }
-
-    private static bool IsPalindrome_S1(string s)
-    {
-        s = Regex.Replace(s.ToLower(), "[^a-zA-Z0-9]", "");
-        int l = 0;
-        int r = s.Length - 1;
-        while (l < r)
-        {
-            if (s[l] != s[r])
-                return false;
-            l++;
-            r--;
-        }
         return true;
     }
 }
